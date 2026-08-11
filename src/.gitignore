@@ -1,0 +1,69 @@
+# Python
+
+**pycache**/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+
+venv/
+.venv/
+env/
+ENV/
+
+# Django
+
+*.log
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+
+# Environment variables
+
+.env
+.env.*
+
+# Django migrations
+
+# Descomente se quiser ignorar arquivos de migration
+
+# */migrations/*.py
+
+# !*/migrations/**init**.py
+
+# IDEs
+
+.vscode/
+.idea/
+
+# OS
+
+.DS_Store
+Thumbs.db
+
+# Testing
+
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Type checkers
+
+.mypy_cache/
+.pyright/
+
+# Build / packaging
+
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Jupyter
+
+.ipynb_checkpoints/
+
+# Ruff
+
+.ruff_cache/
