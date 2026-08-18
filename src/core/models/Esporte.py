@@ -1,4 +1,5 @@
 from django.db import models 
+
 class Esporte(models.Model):
     tecnico = models.CharField(max_length=255)
 

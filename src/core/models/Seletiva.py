@@ -1,4 +1,6 @@
 from django.db import models 
+from .Esporte import Esporte
+
 class Seletiva(models.Model):
     data = models.DateTimeField()
     local = models.CharField(max_length=255)
