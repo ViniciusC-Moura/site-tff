@@ -1,5 +1,5 @@
 from django.db import models
-from .fotos import Foto
+from .Foto import Foto
 class Tag(models.Model):
     nome = models.CharField(max_length=100)
     fotos = models.ManyToManyField(
