@@ -1,0 +1,16 @@
+:root{
+    --verde_header_footer: #2e6f28;
+    --roxo_carrossel: #760a8c;
+    --roxo_titulo_card: #ed96ff;
+    --roxo_card: #5a006c;
+    --verde_titulo_claro: #89ee90;
+    --verde_titulo: #168600;
+    --verde_card: #136902;
+    --verde_escuro: #09231b;
+    --verde_card_escuro: #065f46;
+    --fundo: #f5f5f5;
+}
+
+body{
+    background-color: var(--);
+}
