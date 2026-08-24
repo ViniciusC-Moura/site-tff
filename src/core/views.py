@@ -6,3 +6,6 @@ def home(request):
 
 def sobre_nos(request):
     return render(request,'sobre_nos.html')
+
+def gestao(request):
+    return render(request,'gestao.html')
