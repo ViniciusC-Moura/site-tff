@@ -1,0 +1,119 @@
+:root{
+    --verde_header_footer: #2e6f28;
+    --roxo_carrossel: #760a8c;
+    --roxo_titulo_card: #ed96ff;
+    --roxo_card: #5a006c;
+    --verde_titulo_claro: #89ee90;
+    --verde_titulo: #168600;
+    --verde_card: #136902;
+    --verde_escuro: #09231b;
+    --verde_card_escuro: #065f46;
+    --fundo: #f5f5f5;
+}
+
+*{
+    margin: 0%;
+    padding: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap');
+
+section.banner-inicio {
+    height: 444px;
+    background-color: var(--verde_escuro);
+    padding: 0px 356px 0px 356px;
+    display: flex;
+    justify-content: space-between;
+}
+
+section.banner-inicio div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 50%;
+    gap: 60px;
+}
+
+section.banner-inicio div p{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+    color: white;
+}
+
+section.banner-inicio div button{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    width: 174px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: var(--verde_titulo);
+    color: white;
+    border: 0;
+}
+
+section.banner-inicio div p span{
+    color: var(--verde_titulo_claro);
+}
+
+
+
+
+section.camisa-inicio {
+    height: 645px;
+    background-color: var(--fundo);
+    padding: 0px 356px 0px 356px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.camisa-inicio h2, p, a{
+    color: white;
+}
+
+.camisa-card{
+    width: 1209px;
+    height: 433px;
+    padding: 0px 180px 0px 45px;
+    border-radius: 10px;
+    border: 5px solid var(--verde_card_escuro);
+    background-image: radial-gradient(circle, var(--verde_card_escuro), var(--verde_escuro));
+    display: flex;
+    gap: 91px;
+}
+
+.camisa-info{
+    padding: 60px 0px 82px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.camisa-preco{
+    background-color: var(--verde_card_escuro);
+    border: 0.5px solid white;
+    border-radius: 30px;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    padding: 18px 18px 18px 31px;
+}
+
+.camisa-preco p{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    color: white;
+}
+
+.camisa-preco a{
+    border-radius: 10px;
+    text-decoration: none;
+    background-color: var(--roxo_card);
+    padding: 10px 50px 10px 50px;
+    font-size: 22px;
+}
