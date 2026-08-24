@@ -1,0 +1,57 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.titulo_pagina{
+    margin-top: 50px;
+    font-size: 52px;
+}
+
+.polaroid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info{
+    width: 30em;
+    margin-left: 130px;
+}
+
+.info h2{
+    font-size: 36px;
+    font-weight: bold;
+    color: var(--verde_titulo);
+    margin-bottom: 0.5em;
+}
+
+.info p{
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8em;
+    line-height: 25px;
+}
+
+.polaroid{
+    margin-top: 80px;
+}
+
+.mascote{
+    background-color: var(--verde_card_escuro);
+    height: 406px;
+}
+
+.mascote h2{
+    color: var(--verde_titulo_claro);
+    font-size: 36px;
+    font-weight: bold;
+    margin-left: 355px;
+}
+
+.mascote p{
+    color: white;
+}
+
+.mascote .conteudo_mascote{
+    padding-top: 2em;
+}
