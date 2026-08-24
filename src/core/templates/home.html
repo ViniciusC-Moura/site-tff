@@ -1,12 +1,118 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
+
 <body>
+    <header>
+        <nav>
+            <h1><a href=""><img src="{% static 'imagens/Logo.png' %}" alt="TFF" class="logo"></a></h1>
+
+            <ul>
+                <li class="dropdown"><a href="#" class="dropdown-btn">Torcida<img
+                            src="{% static 'imagens/seta_header.png' %}" alt="seta"></a>
+                    <ul class="submenu">
+                        <li><a href="">Gestão</a></li>
+                        <li><a href="">Sobre nós</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-btn">Esportes<img src="{% static 'imagens/seta_header.png' %}"
+                            alt="seta"></a>
+                    <ul class="submenu">
+                        <li><a href="">Jogos</a></li>
+                        <li><a href="">Equipes</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown"><a href="#" class="dropdown-btn">Comunicação<img
+                            src="{% static 'imagens/seta_header.png' %}" alt="seta"></a>
+                    <ul class="submenu">
+                        <li><a href="">Notícias</a></li>
+                        <li><a href="">Eventos</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="">Vendas</a></li>
+                <li><a href="">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <footer>
+        <div class="footer-container">
+
+            <div class="footer-top">
+
+                <img class="logo_tff_footer" src="{% static 'imagens/Logo.png' %}" alt="Logo TFF">
+
+                <div class="icones">
+                    <img src="{% static 'imagens/email.png' %}" alt="Email">
+                    <img src="{% static 'imagens/tik_tok.png' %}" alt="TikTok">
+                    <img src="{% static 'imagens/instagram.png' %}" alt="Instagram">
+                </div>
+            </div>
+
+            <div class="footer-linha"></div>
+
+            <div class="footer-bottom">
+                <div class="footer-coluna">
+                    <h3>Torcida</h3>
+                    <a href="">Sobre</a>
+                    <a href="">Gestão</a>
+                </div>
+
+                <div class="footer-coluna">
+                    <h3>Esportes</h3>
+                    <a href="">Intercampi</a>
+                    <a href="">Jogos</a>
+                    <a href="">Equipes</a>
+                </div>
+
+                <div class="footer-coluna">
+                    <h3>Comunicação</h3>
+                    <a href="">Notícias</a>
+                    <a href="">Eventos</a>
+                </div>
+
+                <p class="copyright">2026, Equipe de desenvolvimento</p>
+            </div>
+
+        </div>
+    </footer>
+
 </body>
+
 </html>
+
+<script>
+    const dropdowns = document.querySelectorAll(".dropdown-btn");
+
+    dropdowns.forEach(button => {
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
+            const dropdown = this.parentElement;
+            document.querySelectorAll(".dropdown").forEach(item => {
+                if (item !== dropdown) {
+                    item.classList.remove("active");
+                }
+            });
+            dropdown.classList.toggle("active");
+        });
+    });
+
+    document.addEventListener("click", function (event) {
+        if (!event.target.closest(".dropdown")) {
+            document.querySelectorAll(".dropdown").forEach(item => {
+                item.classList.remove("active");
+            });
+        }
+    });
+</script>
