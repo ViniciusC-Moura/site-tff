@@ -10,7 +10,15 @@
     --verde_card_escuro: #065f46;
     --fundo: #f5f5f5;
 }
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap');
 
 body{
-    background-color: var(--);
+    background-color: var(--fundo);
+}
+.titulo_pagina{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 52;
+    color: var(--verde_titulo);
+    text-align: center;
 }
