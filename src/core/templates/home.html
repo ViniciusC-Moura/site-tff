@@ -1,11 +1,11 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>TFF</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 
@@ -45,6 +45,191 @@
             </ul>
         </nav>
     </header>
+    
+        <main>
+
+        <section class="banner-inicio">
+            <div>
+                <p>Venha torcer com a maior do RN!</p>
+                <button>Saiba mais</button>
+            </div>
+
+            <figure>
+                <img src="{% static 'images/pantera.png' %}" alt="Pantera da TFF">
+            </figure>
+        </section>
+
+
+        <section class="camisa-inicio">
+            <div>
+                <figure>
+                    <img src="{% static 'images/camisa.png' %}" alt="Camisa da TFF">
+                </figure>
+
+                <div>
+                    <h2>O MANTO</h2>
+                    <p>O número na camisa da TFF homenageia a torcida:
+                        <br>
+                        <strong>O 12º JOGADOR</strong>
+                    </p>
+                    <div>
+                        <p>R$ 49,90</p>
+                        <a href="{% url 'produtos' %}">Adquirir</a>
+                    </div>
+                </div>
+            </div>
+
+
+        </section class="noticias">
+            <div>
+                <h2>Notícias</h2>   
+                <a href="">Todas as notícias <img src="{% static 'images/seta.png' %}" alt="Seta"></a>
+            </div>
+
+            <div class="news-carousel">
+
+                <button class="carousel-button prev" type="button">
+                    <img src="" alt="">
+                </button>
+
+                <div class="news-window">
+                    <div class="news-track">
+
+                        {% for noticia in noticias %}
+                            <article class="news-card">
+
+                                <div class="news-image">
+                                    <img
+                                        src="{{ noticia.imagem.url }}"
+                                        alt="{{ noticia.titulo }}"
+                                    >
+                                </div>
+
+                                <div class="news-info">
+                                    <span class="news-category">
+                                        {{ noticia.get_titulo }}
+                                    </span>
+
+                                    <span class="news-date">
+                                        {{ noticia.data_publicacao|date:"d \d\e F \d\e Y" }}
+                                    </span>
+                                </div>
+
+                                <h3>{{ noticia.titulo }}</h3>
+
+                            </article>
+                        {% endfor %}
+
+                    </div>
+                </div>
+
+                <button class="carousel-button next" type="button">
+                    <img src="" alt="">
+                </button>
+
+            </div>
+        </div>
+
+        <div class="carousel-dots"></div>
+
+        <section>
+            <div>
+            <!-- ÚLTIMOS JOGOS -->
+            <h2>ÚLTIMOS JOGOS</h2>
+            <div>
+                {% for jogo in ultimos_jogos %}
+                <div>
+                    <div>
+                    <div>
+                        <span>⚽ {{ jogo.modalidade|upper }} • {{ jogo.data_hora|date:"d/m" }}</span>
+                        <span>{{ jogo.competicao|upper }}</span>
+                    </div>
+                    <div>
+                        {{ jogo.data_hora|time:"Hhi" }} - {{ jogo.local|upper }}
+                    </div>
+                    
+                    <div>
+                        <div>
+                        <img src="{{escudo_cnat.url }}" alt="CNAT">
+                        <div class="small fw-bold mt-1 text-uppercase">CNAT</div>
+                        </div>
+                        
+                        <div>
+                        {{ jogo.placar_cnat }} - {{ jogo.placar_adversario }}
+                        </div>
+                        
+                        <div>
+                        <span>{{ jogo.adversario_sigla|upper }}</span>
+                        <div>{{ jogo.adversario_sigla }}</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <span style="background-color: #4a004e; color: white;">
+                        {{ jogo.fase|upper }}
+                        </span>
+                    </div>
+                    </div>
+                </div>
+                {% empty %}
+                <p class="text-muted">Nenhum jogo recente disponível.</p>
+                {% endfor %}
+            </div>
+
+            <!-- PRÓXIMOS JOGOS -->
+            <h2>PRÓXIMOS JOGOS</h2>
+            <div>
+                {% for jogo in proximos_jogos %}
+                <div>
+                    <div>
+                    <div>
+                        <span>⚽ {{ jogo.modalidade|upper }} • {{ jogo.data_hora|date:"d/m" }}</span>
+                        <span>{{ jogo.competicao|upper }}</span>
+                    </div>
+                    <div>
+                        {{ jogo.data_hora|time:"Hhi" }} - {{ jogo.local|upper }}
+                    </div>
+                    
+                    <div>
+                        <div>
+                        <img src="{{escudo_cnat.url }}" alt="CNAT">
+                        <div class="small fw-bold mt-1 text-uppercase">CNAT</div>
+                        </div>
+                        
+                        <div>
+                        <span>X</span>
+                        </div>
+                        
+                        <div>
+                        <span>{{ jogo.adversario_sigla|upper }}</span>
+                        <div>{{ jogo.adversario_sigla }}</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <span style="background-color: #4a004e; color: white;">
+                        {{ jogo.fase|upper }}
+                        </span>
+                    </div>
+                    </div>
+                </div>
+                {% empty %}
+                <p>Nenhum próximo jogo agendado.</p>
+                {% endfor %}
+            </div>
+
+            <div>
+                <a href="{% url 'jogos' %}">
+                Todos os jogos <img src="{% static 'images/seta_todos.png' %}" alt="">
+                </a>
+            </div>  
+            </div>
+        </section>
+
+        <section>
+        </section>
+
+    </main>
 
     <footer>
         <div class="footer-container">
