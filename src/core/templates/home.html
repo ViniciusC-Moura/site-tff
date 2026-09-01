@@ -69,67 +69,88 @@
 
                 <div class="camisa-info">
                     <h2>O MANTO</h2>
-                    <p>O número na camisa da TFF homenageia a torcida:
-                        <br>
-                        <strong>O 12º JOGADOR</strong>
-                    </p>
+                    <p>O número na camisa da TFF homenageia a torcida:</p>
+                    <p>O 12º JOGADOR</p>
+
                     <div class="camisa-preco">
                         <p>R$ 49,90</p>
                         <a href="">Adquirir</a>
                     </div>
                 </div>
             </div>
+        </section>
 
 
-        </section class="noticias">
-            <div>
-                <h2>Notícias</h2>   
+        <section class="noticias">
+
+            <img src="{% static 'imagens/garra-roxa-esquerda.png' %}" alt="Textura de garra" id="garra-esquerda">
+
+            <div class="titulo-ancora">
+                <h2>NOTÍCIAS</h2>   
                 <a href="">Todas as notícias <img src="{% static 'imagens/seta.png' %}" alt="Seta"></a>
             </div>
 
-            <div class="news-carousel">
+            <div class="carousel-wrapper">
+                <button class="carousel-nav prev" id="prevBtn" aria-label="Anterior"><img src="{% static 'imagens/seta-carrossel-esquerda.png' %}" alt="Seta anterior"></button>
 
-                <button class="carousel-button prev" type="button">
-                    <img src="" alt="">
-                </button>
+                <div class="carousel-track-container">
+                    <div class="carousel-track" id="carouselTrack">
+                    <article class="news-card">
+                        <div class="card-image-wrapper">
+                        <div class="card-placeholder"></div>
+                        <div class="card-overlay">
+                            <p class="card-title">Lorem Ipsum is simply dummy text Lorem Ipsumt</p>
+                            <p class="card-date">22 de fevereiro de 2026</p>
+                        </div>
+                        </div>
+                        <p class="card-category">Basquete</p>
+                    </article>
 
-                <div class="news-window">
-                    <div class="news-track">
+                    <article class="news-card">
+                        <div class="card-image-wrapper">
+                        <div class="card-placeholder"></div>
+                        </div>
+                        <p class="card-category">Eventos</p>
+                    </article>
 
-                        {% for noticia in noticias %}
-                            <article class="news-card">
+                    <article class="news-card">
+                        <div class="card-image-wrapper">
+                        <div class="card-placeholder"></div>
+                        </div>
+                        <p class="card-category">Intercampi</p>
+                    </article>
 
-                                <div class="news-image">
-                                    <img
-                                        src="{{ noticia.imagem.url }}"
-                                        alt="{{ noticia.titulo }}"
-                                    >
-                                </div>
+                    <article class="news-card">
+                        <div class="card-image-wrapper">
+                        <div class="card-placeholder"></div>
+                        </div>
+                        <p class="card-category">Futebol</p>
+                    </article>
 
-                                <div class="news-info">
-                                    <span class="news-category">
-                                        {{ noticia.get_titulo }}
-                                    </span>
-
-                                    <span class="news-date">
-                                        {{ noticia.data_publicacao|date:"d \d\e F \d\e Y" }}
-                                    </span>
-                                </div>
-
-                                <h3>{{ noticia.titulo }}</h3>
-
-                            </article>
-                        {% endfor %}
+                    <article class="news-card">
+                        <div class="card-image-wrapper">
+                        <div class="card-placeholder"></div>
+                        </div>
+                        <p class="card-category">Futebol</p>
+                    </article>
 
                     </div>
                 </div>
 
-                <button class="carousel-button next" type="button">
-                    <img src="" alt="">
-                </button>
-
-            </div>
+                <button class="carousel-nav next" id="nextBtn" aria-label="Próximo"><img src="{% static 'imagens/seta-carrossel-direita.png' %}" alt="Seta posterior"></button>
         </div>
+
+    <div class="carousel-pagination" id="carouselPagination">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </div>
+
+            <img src="{% static 'imagens/garra-roxa-direita.png' %}" alt="Textura de garra" id="garra-direita">
+
+        </section>
 
         <div class="carousel-dots"></div>
 
@@ -300,5 +321,45 @@
                 item.classList.remove("active");
             });
         }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('carouselTrack');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const dots = document.querySelectorAll('.dot');
+    const cards = document.querySelectorAll('.news-card');
+
+    let currentIndex = 0;
+
+    function updateCarousel(index) {
+        const cardWidth = cards[0].getBoundingClientRect().width + 20; // 20px é o gap
+        track.style.transform = `translateX(-${index * cardWidth}px)`;
+
+        dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+        });
+    }
+
+    nextBtn.addEventListener('click', () => {
+        if (currentIndex < cards.length - 1) {
+        currentIndex++;
+        updateCarousel(currentIndex);
+        }
+    });
+
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+        currentIndex--;
+        updateCarousel(currentIndex);
+        }
+    });
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+        currentIndex = index;
+        updateCarousel(currentIndex);
+        });
+    });
     });
 </script>
