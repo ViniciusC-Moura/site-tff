@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TFF</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/equipes.css' %}">
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1><a href=""><img src="{% static 'imagens/Logo.png' %}" alt="TFF" class="logo"></a></h1>
+
+            <ul>
+                <li class="dropdown"><a href="#" class="dropdown-btn">Torcida<img src="{% static 'imagens/seta_header.png' %}" alt="seta"></a>
+                    <ul class="submenu">
+                        <li><a href="">Gestão</a></li>
+                        <li><a href="">Sobre nós</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-btn">Esportes<img src="{% static 'imagens/seta_header.png' %}"
+                            alt="seta"></a>
+                    <ul class="submenu">
+                        <li><a href="">Jogos</a></li>
+                        <li><a href="">Equipes</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown"><a href="#" class="dropdown-btn">Comunicação<img
+                            src="{% static 'imagens/seta_header.png' %}" alt="seta"></a>
+                    <ul class="submenu">
+                        <li><a href="">Notícias</a></li>
+                        <li><a href="">Eventos</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="">Vendas</a></li>
+                <li><a href="">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1 class="titulo_pagina">EQUIPES</h1>
+        <div class="linha_cards_equipes">
+            <div class="card_equipe">
+                <img class="icone_equipe" src="{% static 'imagens/icone_bola_basquete.png' %}" alt="icone de bola de basquete">
+                <p class="nome_equipe">FUTSAL</p>
+            </div>
+            <div class="card_equipe">
+                <img class="icone_equipe" src="{% static 'imagens/icone_bola_basquete.png' %}" alt="icone de bola de basquete">
+                <p class="nome_equipe">FUTSAL</p>
+            </div>
+            <div class="card_equipe">
+                <img class="icone_equipe" src="{% static 'imagens/icone_bola_basquete.png' %}" alt="icone de bola de basquete">
+                <p class="nome_equipe">FUTSAL</p>
+            </div>
+            <div class="card_equipe">
+                <img class="icone_equipe" src="{% static 'imagens/icone_bola_basquete.png' %}" alt="icone de bola de basquete">
+                <p class="nome_equipe">FUTSAL</p>
+            </div>
+            
+        </div>
+        <div class="linha_cards_equipes">
+            <div class="card_equipe">
+                <img class="icone_equipe" src="{% static 'imagens/icone_bola_basquete.png' %}" alt="icone de bola de basquete">
+                <p class="nome_equipe">FUTSAL</p>
+            </div>
+            <div class="card_equipe">
+                <img class="icone_equipe" src="{% static 'imagens/icone_bola_basquete.png' %}" alt="icone de bola de basquete">
+                <p class="nome_equipe">FUTSAL</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+<script>
+    const dropdowns = document.querySelectorAll(".dropdown-btn");
+
+    dropdowns.forEach(button => {
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
+            const dropdown = this.parentElement;
+            document.querySelectorAll(".dropdown").forEach(item => {
+                if (item !== dropdown) {
+                    item.classList.remove("active");
+                }
+            });
+            dropdown.classList.toggle("active");
+        });
+    });
+
+    document.addEventListener("click", function (event) {
+        if (!event.target.closest(".dropdown")) {
+            document.querySelectorAll(".dropdown").forEach(item => {
+                item.classList.remove("active");
+            });
+        }
+    });
+</script>

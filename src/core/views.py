@@ -9,3 +9,6 @@ def sobre_nos(request):
 
 def gestao(request):
     return render(request,'gestao.html')
+
+def equipes(request):
+    return render(request,'equipes.html')

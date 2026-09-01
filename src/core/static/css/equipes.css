@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+*{
+    margin: 0%;
+    padding: 0;
+    box-sizing: border-box;
+}
+.titulo_pagina{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 52px;
+    color: var(--verde_titulo);
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 37px;
+}
+.card_equipe{
+    display: flex;
+    background: white;
+    border: 1px solid var(--verde_titulo);
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    width: 279px;
+    height: 206px;
+    border-radius: 8px;
+}
+.nome_equipe{
+    font-family: 'Anton', sans-serif;
+    color: var(--verde_card_escuro);
+    font-size: 32px;
+}
+.icone_equipe{
+    width: 30px;
+    height: 30px;
+}
+.linha_cards_equipes{
+    width: 1210px;
+    margin-left: 355px;
+    margin-right: 355px;
+    gap: 31px;
+    display: flex;
+    margin-bottom: 50px;
+}
