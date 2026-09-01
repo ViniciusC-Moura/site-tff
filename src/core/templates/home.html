@@ -14,13 +14,13 @@
 <body>
     <header>
         <nav>
-            <h1><a href=""><img src="{% static 'imagens/Logo.png' %}" alt="TFF" class="logo"></a></h1>
+            <h1><a href="{% url 'home' %}"><img src="{% static 'imagens/Logo.png' %}" alt="TFF" class="logo"></a></h1>
 
             <ul>
                 <li class="dropdown"><a href="#" class="dropdown-btn">Torcida<img src="{% static 'imagens/seta_header.png' %}" alt="seta"></a>
                     <ul class="submenu">
-                        <li><a href="">Gestão</a></li>
-                        <li><a href="">Sobre nós</a></li>
+                        <li><a href="{% url 'gestao' %}">Gestão</a></li>
+                        <li><a href="{% url 'sobre_nos' %}">Sobre nós</a></li>
                     </ul>
                 </li>
 
@@ -29,7 +29,7 @@
                             alt="seta"></a>
                     <ul class="submenu">
                         <li><a href="">Jogos</a></li>
-                        <li><a href="">Equipes</a></li>
+                        <li><a href="{% url 'equipes' %}">Equipes</a></li>
                     </ul>
                 </li>
 
@@ -52,7 +52,7 @@
         <section class="banner-inicio">
             <div>
                 <p>Venha torcer com<br>a <span>maior</span> do <span>RN!</span></p>
-                <button>Saiba mais</button>
+                <a href="{% url 'sobre_nos' %}">Saiba mais</a>
             </div>
 
             <figure>

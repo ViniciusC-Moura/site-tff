@@ -55,16 +55,18 @@ section.banner-inicio div p{
     color: white;
 }
 
-section.banner-inicio div button{
+section.banner-inicio div a{
     font-family: 'Montserrat', sans-serif;
     font-size: 24px;
     font-weight: bold;
     width: 174px;
-    height: 50px;
+    text-align: center;
+    padding: 12px;
     border-radius: 10px;
     background-color: var(--verde_titulo);
     color: white;
     border: 0;
+    text-decoration: none;
 }
 
 section.banner-inicio div p span{

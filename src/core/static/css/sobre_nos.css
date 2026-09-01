@@ -14,7 +14,7 @@ body{
 }
 
 .info{
-    width: 30em;
+    width: 570px;
     margin-left: 130px;
 }
 
@@ -98,16 +98,10 @@ body{
     height: auto;
 }
 
-.torcida{
-    display: flex;
-    margin-top: 123px;
-}
-
-
 .torcida {
     width: 100%;
     max-width: 1100px;
-    margin-top: 52px;
+    margin-top: 100px;
     margin-left: 355px;
     display: flex;
     align-items: center;
