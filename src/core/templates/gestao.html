@@ -50,91 +50,17 @@
     <main>
         <h1 class="titulo_pagina">GESTÃO</h1>
         <div class="linha_cards">
+            {% for gestor in gestores %}
             <div class="gestao-card">
                 <div class="gestao-card__imagem">
-                    <img src="https://www.figma.com/api/mcp/asset/79b54cdf-e54b-40fe-b4ad-cb44de5dafa1.png" alt="Dayani Terto">
+                    <img src="{{ gestor.foto.url }}" alt="Foto de {{ gestor.nome }}">
                 </div>
                 <div class="gestao-card__conteudo">
-                    <h2>Presidente</h2>
-                    <p>Dayani Terto</p>
+                    <h2>{{ gestor.funcao }}</h2>
+                    <p>{{ gestor.nome }}</p>
                 </div>
             </div>
-            <div class="gestao-card">
-                <div class="gestao-card__imagem">
-                    <img src="https://www.figma.com/api/mcp/asset/79b54cdf-e54b-40fe-b4ad-cb44de5dafa1.png" alt="Dayani Terto">
-                </div>
-                <div class="gestao-card__conteudo">
-                    <h2>Presidente</h2>
-                    <p>Dayani Terto</p>
-                </div>
-            </div>
-            <div class="gestao-card">
-                <div class="gestao-card__imagem">
-                    <img src="https://www.figma.com/api/mcp/asset/79b54cdf-e54b-40fe-b4ad-cb44de5dafa1.png" alt="Dayani Terto">
-                </div>
-                <div class="gestao-card__conteudo">
-                    <h2>Presidente</h2>
-                    <p>Dayani Terto</p>
-                </div>
-            </div>
-        </div>
-        <div class="linha_cards">
-            <div class="gestao-card">
-                <div class="gestao-card__imagem">
-                    <img src="https://www.figma.com/api/mcp/asset/79b54cdf-e54b-40fe-b4ad-cb44de5dafa1.png" alt="Dayani Terto">
-                </div>
-                <div class="gestao-card__conteudo">
-                    <h2>Presidente</h2>
-                    <p>Dayani Terto</p>
-                </div>
-            </div>
-            <div class="gestao-card">
-                <div class="gestao-card__imagem">
-                    <img src="https://www.figma.com/api/mcp/asset/79b54cdf-e54b-40fe-b4ad-cb44de5dafa1.png" alt="Dayani Terto">
-                </div>
-                <div class="gestao-card__conteudo">
-                    <h2>Presidente</h2>
-                    <p>Dayani Terto</p>
-                </div>
-            </div>
-            <div class="gestao-card">
-                <div class="gestao-card__imagem">
-                    <img src="https://www.figma.com/api/mcp/asset/79b54cdf-e54b-40fe-b4ad-cb44de5dafa1.png" alt="Dayani Terto">
-                </div>
-                <div class="gestao-card__conteudo">
-                    <h2>Presidente</h2>
-                    <p>Dayani Terto</p>
-                </div>
-            </div>
-        </div>
-        <div class="linha_cards">
-            <div class="gestao-card">
-                <div class="gestao-card__imagem">
-                    <img src="https://www.figma.com/api/mcp/asset/79b54cdf-e54b-40fe-b4ad-cb44de5dafa1.png" alt="Dayani Terto">
-                </div>
-                <div class="gestao-card__conteudo">
-                    <h2>Presidente</h2>
-                    <p>Dayani Terto</p>
-                </div>
-            </div>
-            <div class="gestao-card">
-                <div class="gestao-card__imagem">
-                    <img src="https://www.figma.com/api/mcp/asset/79b54cdf-e54b-40fe-b4ad-cb44de5dafa1.png" alt="Dayani Terto">
-                </div>
-                <div class="gestao-card__conteudo">
-                    <h2>Presidente</h2>
-                    <p>Dayani Terto</p>
-                </div>
-            </div>
-            <div class="gestao-card">
-                <div class="gestao-card__imagem">
-                    <img src="https://www.figma.com/api/mcp/asset/79b54cdf-e54b-40fe-b4ad-cb44de5dafa1.png" alt="Dayani Terto">
-                </div>
-                <div class="gestao-card__conteudo">
-                    <h2>Presidente</h2>
-                    <p>Dayani Terto</p>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </main>
 
