@@ -34,10 +34,10 @@
     height: 30px;
 }
 .linha_cards_equipes{
-    width: 1210px;
-    margin-left: 355px;
-    margin-right: 355px;
+    display: grid;
+    grid-template-columns: repeat(4, 279px);
+    justify-content: center;
     gap: 31px;
-    display: flex;
-    margin-bottom: 50px;
+    max-width: 1210px;
+    margin: 0 auto 50px;
 }
