@@ -74,6 +74,7 @@
     color: var(--verde_card_escuro);
     font-size: 20px;
     font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .gestao-card__conteudo p {
@@ -81,11 +82,13 @@
     color: #000;
     font-size: 16px;
     font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
 }
 .linha_cards{
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 267px);
+    justify-content: center;
     gap: 90px;
-    margin-left:450px ;
-    margin-right:450px ;
-    margin-top: 100px;
+    max-width: 981px;
+    margin: 100px auto;
 }
