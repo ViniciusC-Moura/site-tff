@@ -17,6 +17,19 @@
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+h2, p, a {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+
+
+
 
 section.banner-inicio {
     height: 444px;
@@ -61,6 +74,7 @@ section.banner-inicio div p span{
 
 
 
+
 section.camisa-inicio {
     height: 645px;
     background-color: var(--fundo);
@@ -80,17 +94,26 @@ section.camisa-inicio {
     padding: 0px 180px 0px 45px;
     border-radius: 10px;
     border: 5px solid var(--verde_card_escuro);
-    background-image: radial-gradient(circle, var(--verde_card_escuro), var(--verde_escuro));
+    background-image: radial-gradient(circle at top left, var(--verde_card_escuro), var(--verde_escuro));
     display: flex;
     gap: 91px;
 }
 
 .camisa-info{
+    font-family: 'Montserrat', sans-serif;
     padding: 60px 0px 82px 0px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 20px;
+}
+
+.camisa-info p{
+    font-size: 30px;
+}
+
+.camisa-info p:nth-child(3){
+    font-weight: bold;
 }
 
 .camisa-preco{
@@ -104,16 +127,175 @@ section.camisa-inicio {
 }
 
 .camisa-preco p{
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Anton', sans-serif;
     font-weight: bold;
     font-size: 30px;
     color: white;
 }
 
 .camisa-preco a{
+    font-weight: bold;
     border-radius: 10px;
     text-decoration: none;
     background-color: var(--roxo_card);
     padding: 10px 50px 10px 50px;
     font-size: 22px;
+}   
+
+
+
+
+
+section.noticias{
+    position: relative;
+    height: 522px;
+    background-color: var(--roxo_carrossel);
+    padding: 0px 356px 0px 356px;
+}
+
+#garra-esquerda{
+    position: absolute;
+    left: 0em;
+    top: -20em;
+}
+
+#garra-direita{
+    position: absolute;
+    right: 0em;
+    top: -15em;
+}
+
+div.titulo-ancora {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    padding-top: 54px;
+    padding-bottom: 10px;
+}
+
+.titulo-ancora a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.titulo-ancora a img{
+    margin-left: 5px;
+}
+
+
+
+
+
+
+/* Estrutura do Carrossel */
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.carousel-track-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 42px;
+  transition: transform 0.4s ease-in-out;
+}
+
+/* Navegação por setas */
+.carousel-nav {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 3rem;
+  cursor: pointer;
+  padding: 0 15px;
+  user-select: none;
+  z-index: 3;
+}
+
+.carousel-nav:hover {
+  opacity: 0.7;
+}
+
+/* Estilo dos Cards */
+.news-card {
+  flex: 0 0 calc(33.333% - 14px);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-image-wrapper {
+  position: relative;
+  width: 426px;
+  height: 291px;
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: #d3d3d3;
+}
+
+.card-placeholder {
+  width: 100%;
+  height: 291px;
+  background-color: #cccccc;
+}
+
+/* Overlay escuro de informação dentro do card */
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(90, 90, 90, 0.85);
+  color: #ffffff;
+  padding: 4% 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+}
+
+.card-title {
+    max-width: 50%;
+    line-height: 1.4;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.card-date {
+  white-space: nowrap;
+  opacity: 0.9;
+  font-size: 14px;
+}
+
+.card-category {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+/* Paginação por Pontos */
+.carousel-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.dot {
+  width: 17px;
+  height: 17px;
+  background-color: #555555;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #5cfb40;
 }

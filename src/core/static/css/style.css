@@ -40,17 +40,36 @@ header nav ul{
     gap: 90px;
     list-style-type: none;
     text-align: center;
-    justify-content: center;
-    margin-top: 31px;
     font-size: 20px;
-    margin-left: 300px;
+    margin-right: 355px;
+    justify-content: center;
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
 }
 
-header nav ul li a img{
-    margin-left: 5px;
+header nav > ul {
+    display: flex;
+    align-items: center;
+    gap: 90px;
+    list-style: none;
+    margin: 0 355px 0 auto;
+    padding: 0;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+
+header nav ul li a {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+header nav ul li a img {
     width: 15px;
+    height: auto;
+    margin-left: 5px;
+    display: block;
 }
 
 header a{
@@ -117,7 +136,6 @@ footer {
     width: 63%;
     height: 100%;
     margin: 0 auto;
-    margin-top: 35em;
     display: flex;
     flex-direction: column;
     justify-content: center;
