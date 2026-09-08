@@ -25,7 +25,7 @@ body{
 .titulo_pagina{
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
-    font-size: 52;
+    font-size: 52px;
     color: var(--verde_titulo);
     text-align: center;
 }

@@ -7,5 +7,6 @@ from .Jogo import Jogo
 from .Noticia import Noticia
 from .Produto import Produto
 from .Seletiva import Seletiva
-from .Tag import Tag 
+from .Tag import Tag
+from .Jogo import Jogo
 
