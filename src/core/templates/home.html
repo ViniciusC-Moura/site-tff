@@ -154,103 +154,198 @@
 
         <div class="carousel-dots"></div>
 
-        <section>
-            <div>
-            <!-- ÚLTIMOS JOGOS -->
+        <section class="ultimos-jogos">
             <h2>ÚLTIMOS JOGOS</h2>
-            <div>
-                {% for jogo in ultimos_jogos %}
-                <div>
-                    <div>
-                    <div>
-                        <span>⚽ {{ jogo.modalidade|upper }} • {{ jogo.data_hora|date:"d/m" }}</span>
-                        <span>{{ jogo.competicao|upper }}</span>
-                    </div>
-                    <div>
-                        {{ jogo.data_hora|time:"Hhi" }} - {{ jogo.local|upper }}
-                    </div>
-                    
-                    <div>
-                        <div>
-                        <img src="{{escudo_cnat.url }}" alt="CNAT">
-                        <div class="small fw-bold mt-1 text-uppercase">CNAT</div>
-                        </div>
-                        
-                        <div>
-                        {{ jogo.placar_cnat }} - {{ jogo.placar_adversario }}
-                        </div>
-                        
-                        <div>
-                        <span>{{ jogo.adversario_sigla|upper }}</span>
-                        <div>{{ jogo.adversario_sigla }}</div>
-                        </div>
-                    </div>
 
-                    <div>
-                        <span style="background-color: #4a004e; color: white;">
-                        {{ jogo.fase|upper }}
-                        </span>
+            <div class="ultimos-jogos-container">
+
+                <div class="card-jogo">
+                    <div class="mod-data-comp">
+                        <div><img src="{% static 'imagens/icone_bola_futebol_16px.png' %}" alt="Ícone de bola de futebol"><p>FUTEBOL CAMPO • 13/10</p></div>
+                        <p>JERNS 2024 - Regional</p>
                     </div>
+                    <p class="local-hora">12H - CAMPO IFRN</p>
+                    <div class="times-placar">
+                        <div class="time">
+                            <img src="{% static 'imagens/cnat_escudo.png' %}" alt="CNAT">
+                            <p>CNAT</p>
+                        </div>
+                        <p class="placar">2 - 2</p>
+                        <div class="time">
+                            <div><p>ADV</p></div>
+                            <p>ADVERSÁRIO</p>
+                        </div>
+                    </div>
+                    <div class="fase-jogo">
+                        <p>FASE DE GRUPOS</p>
                     </div>
                 </div>
-                {% empty %}
-                <p class="text-muted">Nenhum jogo recente disponível.</p>
-                {% endfor %}
+                <div class="card-jogo">
+                    <div class="mod-data-comp">
+                        <div><img src="{% static 'imagens/icone_bola_futebol_16px.png' %}" alt="Ícone de bola de futebol"><p>FUTEBOL CAMPO • 13/10</p></div>
+                        <p>JERNS 2024 - Regional</p>
+                    </div>
+                    <p class="local-hora">12H - CAMPO IFRN</p>
+                    <div class="times-placar">
+                        <div class="time">
+                            <img src="{% static 'imagens/cnat_escudo.png' %}" alt="CNAT">
+                            <p>CNAT</p>
+                        </div>
+                        <p class="placar">2 - 2</p>
+                        <div class="time">
+                            <div><p>ADV</p></div>
+                            <p>ADVERSÁRIO</p>
+                        </div>
+                    </div>
+                    <div class="fase-jogo">
+                        <p>FASE DE GRUPOS</p>
+                    </div>
+                </div>
+                <div class="card-jogo">
+                    <div class="mod-data-comp">
+                        <div><img src="{% static 'imagens/icone_bola_futebol_16px.png' %}" alt="Ícone de bola de futebol"><p>FUTEBOL CAMPO • 13/10</p></div>
+                        <p>JERNS 2024 - Regional</p>
+                    </div>
+                    <p class="local-hora">12H - CAMPO IFRN</p>
+                    <div class="times-placar">
+                        <div class="time">
+                            <img src="{% static 'imagens/cnat_escudo.png' %}" alt="CNAT">
+                            <p>CNAT</p>
+                        </div>
+                        <p class="placar">2 - 2</p>
+                        <div class="time">
+                            <div><p>ADV</p></div>
+                            <p>ADVERSÁRIO</p>
+                        </div>
+                    </div>
+                    <div class="fase-jogo">
+                        <p>FASE DE GRUPOS</p>
+                    </div>
+                </div>
+                <div class="card-jogo">
+                    <div class="mod-data-comp">
+                        <div><img src="{% static 'imagens/icone_bola_futebol_16px.png' %}" alt="Ícone de bola de futebol"><p>FUTEBOL CAMPO • 13/10</p></div>
+                        <p>JERNS 2024 - Regional</p>
+                    </div>
+                    <p class="local-hora">12H - CAMPO IFRN</p>
+                    <div class="times-placar">
+                        <div class="time">
+                            <img src="{% static 'imagens/cnat_escudo.png' %}" alt="CNAT">
+                            <p>CNAT</p>
+                        </div>
+                        <p class="placar">2 - 2</p>
+                        <div class="time">
+                            <div><p>ADV</p></div>
+                            <p>ADVERSÁRIO</p>
+                        </div>
+                    </div>
+                    <div class="fase-jogo">
+                        <p>FASE DE GRUPOS</p>
+                    </div>
+                </div>
+
             </div>
 
-            <!-- PRÓXIMOS JOGOS -->
+
+        </section>
+
+        <section class="proximos-jogos">
             <h2>PRÓXIMOS JOGOS</h2>
-            <div>
-                {% for jogo in proximos_jogos %}
-                <div>
-                    <div>
-                    <div>
-                        <span>⚽ {{ jogo.modalidade|upper }} • {{ jogo.data_hora|date:"d/m" }}</span>
-                        <span>{{ jogo.competicao|upper }}</span>
-                    </div>
-                    <div>
-                        {{ jogo.data_hora|time:"Hhi" }} - {{ jogo.local|upper }}
-                    </div>
-                    
-                    <div>
-                        <div>
-                        <img src="{{escudo_cnat.url }}" alt="CNAT">
-                        <div class="small fw-bold mt-1 text-uppercase">CNAT</div>
-                        </div>
-                        
-                        <div>
-                        <span>X</span>
-                        </div>
-                        
-                        <div>
-                        <span>{{ jogo.adversario_sigla|upper }}</span>
-                        <div>{{ jogo.adversario_sigla }}</div>
-                        </div>
-                    </div>
+            <div class="proximos-jogos-container">
 
-                    <div>
-                        <span style="background-color: #4a004e; color: white;">
-                        {{ jogo.fase|upper }}
-                        </span>
+                <div class="card-jogo">
+                    <div class="mod-data-comp">
+                        <div><img src="{% static 'imagens/icone_bola_futebol_16px.png' %}" alt="Ícone de bola de futebol"><p>FUTEBOL CAMPO • 13/10</p></div>
+                        <p>JERNS 2024 - Regional</p>
                     </div>
+                    <p class="local-hora">12H - CAMPO IFRN</p>
+                    <div class="times-placar">
+                        <div class="time">
+                            <img src="{% static 'imagens/cnat_escudo.png' %}" alt="CNAT">
+                            <p>CNAT</p>
+                        </div>
+                        <p class="placar">X</p>
+                        <div class="time">
+                            <div><p>ADV</p></div>
+                            <p>ADVERSÁRIO</p>
+                        </div>
+                    </div>
+                    <div class="fase-jogo">
+                        <p>FASE DE GRUPOS</p>
                     </div>
                 </div>
-                {% empty %}
-                <p>Nenhum próximo jogo agendado.</p>
-                {% endfor %}
+                <div class="card-jogo">
+                    <div class="mod-data-comp">
+                        <div><img src="{% static 'imagens/icone_bola_futebol_16px.png' %}" alt="Ícone de bola de futebol"><p>FUTEBOL CAMPO • 13/10</p></div>
+                        <p>JERNS 2024 - Regional</p>
+                    </div>
+                    <p class="local-hora">12H - CAMPO IFRN</p>
+                    <div class="times-placar">
+                        <div class="time">
+                            <img src="{% static 'imagens/cnat_escudo.png' %}" alt="CNAT">
+                            <p>CNAT</p>
+                        </div>
+                        <p class="placar">X</p>
+                        <div class="time">
+                            <div><p>ADV</p></div>
+                            <p>ADVERSÁRIO</p>
+                        </div>
+                    </div>
+                    <div class="fase-jogo">
+                        <p>FASE DE GRUPOS</p>
+                    </div>
+                </div>
+                <div class="card-jogo">
+                    <div class="mod-data-comp">
+                        <div><img src="{% static 'imagens/icone_bola_futebol_16px.png' %}" alt="Ícone de bola de futebol"><p>FUTEBOL CAMPO • 13/10</p></div>
+                        <p>JERNS 2024 - Regional</p>
+                    </div>
+                    <p class="local-hora">12H - CAMPO IFRN</p>
+                    <div class="times-placar">
+                        <div class="time">
+                            <img src="{% static 'imagens/cnat_escudo.png' %}" alt="CNAT">
+                            <p>CNAT</p>
+                        </div>
+                        <p class="placar">X</p>
+                        <div class="time">
+                            <div><p>ADV</p></div>
+                            <p>ADVERSÁRIO</p>
+                        </div>
+                    </div>
+                    <div class="fase-jogo">
+                        <p>FASE DE GRUPOS</p>
+                    </div>
+                </div>
+                <div class="card-jogo">
+                    <div class="mod-data-comp">
+                        <div><img src="{% static 'imagens/icone_bola_futebol_16px.png' %}" alt="Ícone de bola de futebol"><p>FUTEBOL CAMPO • 13/10</p></div>
+                        <p>JERNS 2024 - Regional</p>
+                    </div>
+                    <p class="local-hora">12H - CAMPO IFRN</p>
+                    <div class="times-placar">
+                        <div class="time">
+                            <img src="{% static 'imagens/cnat_escudo.png' %}" alt="CNAT">
+                            <p>CNAT</p>
+                        </div>
+                        <p class="placar">X</p>
+                        <div class="time">
+                            <div><p>ADV</p></div>
+                            <p>ADVERSÁRIO</p>
+                        </div>
+                    </div>
+                    <div class="fase-jogo">
+                        <p>FASE DE GRUPOS</p>
+                    </div>
+                </div>
+
             </div>
 
-            <div>
+            <div class="todos-jogos">
                 <a href="">
-                Todos os jogos <img src="{% static 'imagens/seta_todos.png' %}" alt="">
+                <div><p>Todos os jogos</p><img src="{% static 'imagens/seta_todos.png' %}" alt="Seta - Todos os jogos"></div>
                 </a>
             </div>  
-            </div>
         </section>
-
-        <section>
-        </section>
-
     </main>
 
     <footer>
@@ -342,7 +437,7 @@
     }
 
     nextBtn.addEventListener('click', () => {
-        if (currentIndex < cards.length - 1) {
+        if (currentIndex < cards.length - 2) {
         currentIndex++;
         updateCarousel(currentIndex);
         }
@@ -357,7 +452,7 @@
 
     dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
-        currentIndex = index;
+        currentIndex = index; 
         updateCarousel(currentIndex);
         });
     });

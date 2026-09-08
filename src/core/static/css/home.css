@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
 :root{
     --verde_header_footer: #2e6f28;
     --roxo_carrossel: #760a8c;
@@ -15,9 +19,6 @@
     margin: 0%;
     padding: 0;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
 h2, p, a {
     font-family: 'Montserrat', sans-serif;
@@ -189,6 +190,144 @@ div.titulo-ancora {
 
 
 
+
+
+section.ultimos-jogos{
+    height: 500px;
+    padding: 100px 356px 0px 356px;
+}
+
+section.proximos-jogos {
+    padding: 0px 356px 0px 356px;
+}
+
+section.ultimos-jogos h2, section.proximos-jogos h2{
+    color: var(--verde_titulo);
+}
+
+div.ultimos-jogos-container, div.proximos-jogos-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+div.card-jogo{
+    width: 570px;
+    height: 176px;
+    border-radius: 15px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #C1C9BE;
+    box-sizing: border-box;
+    padding: 15px 35px 15px 35px;
+    margin-bottom: 20px;
+}
+
+.card-jogo * {
+    font-family: 'Lexend', sans-serif !important;
+}
+
+div.mod-data-comp{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+div.mod-data-comp div{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+div.mod-data-comp p, p.local-hora{
+    color: #414941;
+    font-size: 12px;
+    font-family: 'Lexend', sans-serif;
+}
+
+div.times-placar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+div.time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+div.time img{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+div.time div{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: var(--verde_escuro);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+div.time div p{
+    color: white;
+    font-family: 'Lexend', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+div.time p {
+    color: black;
+    font-family: 'Lexend', sans-serif;
+    font-size: 12px;
+}
+
+.placar{
+    font-family: 'Lexend', sans-serif;
+    color: black;
+    font-size: 36px;
+}
+
+div.fase-jogo {
+    padding: 5px;
+    background-color: var(--roxo_card);
+    width: 28%;
+    margin: 0 auto;
+    border-radius: 40px;
+}
+
+div.fase-jogo p {
+    color: white;
+    text-align: center;
+    font-family: 'Lexend', sans-serif;
+    font-size: 12px;
+}
+
+div.todos-jogos{
+    display: flex;
+    justify-content: right;
+    margin-top: 10px;
+}
+
+div.todos-jogos a p{
+    font-size: 18px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: var(--verde_titulo);
+}
+
+div.todos-jogos a div{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
 
 /* Estrutura do Carrossel */
