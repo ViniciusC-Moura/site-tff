@@ -28,8 +28,8 @@
                     <a href="#" class="dropdown-btn">Esportes<img src="{% static 'imagens/seta_header.png' %}"
                             alt="seta"></a>
                     <ul class="submenu">
-                        <li><a href="">Jogos</a></li>
-                        <li><a href="">Equipes</a></li>
+                        <li><a href="{% url 'jogos' %}">Jogos</a></li>
+                        <li><a href="{% url 'equipes' %}">Equipes</a></li>
                     </ul>
                 </li>
 
@@ -46,6 +46,7 @@
             </ul>
         </nav>
     </header>
+    
     <main>
         <h1 class="titulo_pagina">EQUIPES</h1>
         <div class="linha_cards_equipes">
@@ -57,6 +58,7 @@
             {% endfor %}
         </div>
     </main>
+
     <footer>
         <div class="footer-container">
             <div class="footer-top">

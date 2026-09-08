@@ -13,7 +13,7 @@ class Jogo(models.Model):
         ('fnde', 'FNDE'),
         ('intercampi', 'Intercampi'),
         ('jifs', 'JIFs'),
-        ('', 'JERNS'),
+        ('jerns', 'JERNS'),
     ]
 
     placar_cnat = models.IntegerField()

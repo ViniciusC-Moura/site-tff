@@ -1,0 +1,105 @@
+.filtro-form {
+    max-width: 900px;
+    margin: 20px auto 16px;
+    background-color: #f2f2f2;
+    border-radius: 12px;
+    padding: 24px 32px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    font-family: 'Montserrat', sans-serif;
+    border: 2px solid #C1C9BE;
+}   
+ 
+.filtro-form > div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+ 
+.filtro-form label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--verde_titulo);
+}
+ 
+.filtro-form select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: var(--verde_card_escuro);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 36px 10px 14px;
+    min-width: 140px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px;
+    font-family: 'Montserrat', sans-serif;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'><path d='M4 6l4 4 4-4z'/></svg>");
+}
+ 
+.filtro-form select:hover,
+.filtro-form select:focus {
+    background-color: #145232;
+    outline: none;
+}
+ 
+.filtro-form button[type="submit"] {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    background-color: var(--roxo_card);
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 12px 10px 14px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+    white-space: nowrap;
+    font-family: 'Montserrat', sans-serif;
+}
+ 
+.filtro-form button[type="submit"]::after {
+    content: "";
+    display: flex;
+    align-items: center;
+    gap: 19px;
+    width: 16px;
+    height: 16px;
+    background-image: url('../imagens/lupa.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-top: 2px;
+}
+ 
+.filtros-ativos {
+    max-width: 900px;
+    margin: 0 480px 28px;
+    font-size: 16px;
+    color: #1a1a1a;
+    font-family: 'Montserrat', sans-serif;
+}
+ 
+.filtros-ativos strong {
+    color: #1a7a3c;
+    font-weight: 700;
+}
+
+.titulo_pagina{
+    margin-top: 50px;
+}
+
+.aviso{
+    margin-left: 480px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px
+}

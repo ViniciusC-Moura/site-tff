@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogos</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jogos.css' %}">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1><a href="{% url 'home' %}"><img src="{% static 'imagens/Logo.png' %}" alt="TFF" class="logo"></a></h1>
+
+            <ul>
+                <li class="dropdown"><a href="#" class="dropdown-btn">Torcida<img
+                            src="{% static 'imagens/seta_header.png' %}" alt="seta"></a>
+                    <ul class="submenu">
+                        <li><a href="{% url 'gestao' %}">Gestão</a></li>
+                        <li><a href="{% url 'sobre_nos' %}">Sobre nós</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-btn">Esportes<img src="{% static 'imagens/seta_header.png' %}"
+                            alt="seta"></a>
+                    <ul class="submenu">
+                        <li><a href="{% url 'jogos' %}">Jogos</a></li>
+                        <li><a href="{% url 'equipes' %}">Equipes</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown"><a href="#" class="dropdown-btn">Comunicação<img
+                            src="{% static 'imagens/seta_header.png' %}" alt="seta"></a>
+                    <ul class="submenu">
+                        <li><a href="">Notícias</a></li>
+                        <li><a href="">Eventos</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="">Vendas</a></li>
+                <li><a href="">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="titulo_pagina">JOGOS</h1>
+
+        <div class="form">
+            <form method="get" class="filtro-form">
+                <div>
+                    <label>Competição</label>
+                    {{ filter.form.competicao }}
+                </div>
+                <div>
+                    <label>Edição</label>
+                    {{ filter.form.edicao }}
+                </div>
+                <div>
+                    <label>Fase</label>
+                    {{ filter.form.fase_competicao }}
+                </div>
+                <div>
+                    <label>Modalidade</label>
+                    {{ filter.form.modalidade }}
+                </div>
+                <button type="submit">Buscar</button>
+            </form>
+        </div>
+
+        {% if filtros_ativos %}
+        <p class="filtros-ativos">
+            Exibindo jogos com os filtros:
+            {% for chave, valor in filtros_ativos.items %}
+            <strong>{{ valor }}</strong>{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </p>
+        {% endif %}
+
+        <div class="jogos-grid">
+            {% for jogo in jogos %}
+            <div class="jogo-card">
+                <div class="jogo-header">
+                    <span>{{ jogo.get_modalidade_display|default:jogo.modalidade }} •
+                        {{ jogo.data_hora|date:"d/m" }}</span>
+                    <span>{{ jogo.competicao|upper }} {{ jogo.edicao }}-{{ jogo.fase_competicao|upper }}</span>
+                </div>
+                <div class="jogo-hora-local">
+                    {{ jogo.data_hora|date:"H\H" }} - {{ jogo.local }}
+                </div>
+                <div class="jogo-placar">
+                    <div class="time">
+                        <div class="escudo">CNAT</div>
+                        <span>CNAT</span>
+                    </div>
+
+                    {% if jogo.status == 'finalizado' %}
+                    <span class="placar">{{ jogo.placar_cnat }} - {{ jogo.placar_adversario }}</span>
+                    {% else %}
+                    <span class="placar">X</span>
+                    {% endif %}
+
+                    <div class="time">
+                        <div class="escudo">ADV</div>
+                        <span>{{ jogo.nome_adversario|upper }}</span>
+                    </div>
+                </div>
+                <span class="badge-fase">{{ jogo.fase_jogo|upper }}</span>
+            </div>
+            {% empty %}
+            <p class="aviso">Nenhum jogo encontrado com esses filtros.</p>
+            {% endfor %}
+        </div>
+
+        {% if is_paginated %}
+        <div class="paginacao">
+            {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}">‹</a>
+            {% endif %}
+            <span>{{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span>
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">›</a>
+            {% endif %}
+        </div>
+        {% endif %}
+    </main>
+
+</body>
+
+</html>
+
+<script>
+    const dropdowns = document.querySelectorAll(".dropdown-btn");
+
+    dropdowns.forEach(button => {
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
+            const dropdown = this.parentElement;
+            document.querySelectorAll(".dropdown").forEach(item => {
+                if (item !== dropdown) {
+                    item.classList.remove("active");
+                }
+            });
+            dropdown.classList.toggle("active");
+        });
+    });
+
+    document.addEventListener("click", function (event) {
+        if (!event.target.closest(".dropdown")) {
+            document.querySelectorAll(".dropdown").forEach(item => {
+                item.classList.remove("active");
+            });
+        }
+    });
+</script>
