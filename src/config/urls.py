@@ -27,7 +27,8 @@ urlpatterns = [
     path('gestao',views.gestao,name="gestao"),
     path('equipes',views.equipes,name="equipes"),
     path('jogos', views.jogos, name="jogos"),
-    path('noticias', views.noticias, name="noticias")
+    path('noticias', views.noticias, name="noticias"),
+    path('eventos', views.eventos, name="eventos")
 ]
 
 if settings.DEBUG:
