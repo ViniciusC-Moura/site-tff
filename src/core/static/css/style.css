@@ -1,4 +1,5 @@
-﻿:root{
+﻿@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap');
+:root{
     --verde_header_footer: #2e6f28;
     --roxo_carrossel: #760a8c;
     --roxo_titulo_card: #ed96ff;
@@ -16,8 +17,6 @@
     padding: 0;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap');
-
 body{
     background-color: var(--fundo);
 }
@@ -28,23 +27,12 @@ body{
     font-size: 52px;
     color: var(--verde_titulo);
     text-align: center;
+    margin-top: 50px;
 }
 
 header{
     background-color: var(--verde_header_footer);
     height: 82px;
-}
-
-header nav ul{
-    display: flex;
-    gap: 90px;
-    list-style-type: none;
-    text-align: center;
-    font-size: 20px;
-    margin-right: 355px;
-    justify-content: center;
-    font-weight: bold;
-    font-family: 'Montserrat', sans-serif;
 }
 
 header nav > ul {
@@ -102,6 +90,7 @@ header nav{
     display: none;
     background-color: var(--verde_header_footer);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    gap: 0;
 }
 
 .dropdown.active .submenu {
