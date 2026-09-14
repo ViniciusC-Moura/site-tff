@@ -48,3 +48,8 @@ def gestao(request):
 def equipes(request):
     esportes = Esporte.objects.all().order_by('nome')
     return render(request, 'equipes.html', {'esportes': esportes})
+
+def noticias(request):
+    return render(request, 'noticias.html',)
+
+
