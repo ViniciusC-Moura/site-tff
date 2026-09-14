@@ -221,7 +221,7 @@ div.card-jogo{
     flex-direction: column;
     border: 2px solid #C1C9BE;
     box-sizing: border-box;
-    padding: 15px 35px 15px 35px;
+    padding: 10px 35px 15px 35px;
     margin-bottom: 20px;
 }
 
@@ -286,6 +286,8 @@ div.time p {
     color: black;
     font-family: 'Lexend', sans-serif;
     font-size: 12px;
+    width: 50px;
+    text-align: center;
 }
 
 .placar{
