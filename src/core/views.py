@@ -49,8 +49,15 @@ def equipes(request):
     esportes = Esporte.objects.all().order_by('nome')
     return render(request, 'equipes.html', {'esportes': esportes})
 
+def equipe(request, nome_esporte):
+    esporte = get_object_or_404(Esporte, slug=nome_esporte)
+    return render(request, 'equipe.html', {'esporte': esporte})
 def noticias(request):
-    return render(request, 'noticias.html',)
+    noticias = Noticia.objects.all().order_by('-data')
+    context = {
+            'noticias': noticias,
+        }
+    return render(request, 'noticias.html', context)
 
 def eventos(request):
     eventos = Evento.objects.all().order_by('-data_hora')
