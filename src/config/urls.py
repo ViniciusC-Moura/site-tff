@@ -28,6 +28,7 @@ urlpatterns = [
     path('equipes',views.equipes,name="equipes"),
     path('jogos', views.jogos, name="jogos"),
     path('equipes/<str:nome_esporte>', views.equipe, name="equipe")
+    path('noticias', views.noticias, name="noticias")
 ]
 
 if settings.DEBUG:

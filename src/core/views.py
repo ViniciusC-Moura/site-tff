@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Esporte, Gestor, Jogo
+from .models import Esporte, Gestor, Jogo, Noticia
 from django.core.paginator import Paginator
 from .filters import JogoFilter
 
@@ -25,7 +25,18 @@ def jogos(request):
     return render(request, 'jogos.html', context)
 
 def home(request):
-    return render(request, 'home.html')
+    noticias = Noticia.objects.all().order_by('-data')
+
+    proximos_jogos = Jogo.objects.filter(status='marcado').order_by('data_hora')[:4]
+    ultimos_jogos = Jogo.objects.filter(status='finalizado').order_by('-data_hora')[:4]
+
+    context = {
+        'noticias': noticias,
+        'ultimos_jogos': ultimos_jogos,
+        'proximos_jogos': proximos_jogos,
+    }
+
+    return render(request, 'home.html', context)
 
 def sobre_nos(request):
     return render(request,'sobre_nos.html')
@@ -41,3 +52,11 @@ def equipes(request):
 def equipe(request, nome_esporte):
     esporte = get_object_or_404(Esporte, slug=nome_esporte)
     return render(request, 'equipe.html', {'esporte': esporte})
+def noticias(request):
+    noticias = Noticia.objects.all().order_by('-data')
+    context = {
+            'noticias': noticias,
+        }
+    return render(request, 'noticias.html', context)
+
+
