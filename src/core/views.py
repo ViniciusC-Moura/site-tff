@@ -50,6 +50,10 @@ def equipes(request):
     return render(request, 'equipes.html', {'esportes': esportes})
 
 def noticias(request):
-    return render(request, 'noticias.html',)
+    noticias = Noticia.objects.all().order_by('-data')
+    context = {
+            'noticias': noticias,
+        }
+    return render(request, 'noticias.html', context)
 
 

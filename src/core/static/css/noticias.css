@@ -1,0 +1,139 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Estrutura do Carrossel */
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.carousel-track-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 42px;
+  transition: transform 0.4s ease-in-out;
+}
+
+/* Navegação por setas */
+.carousel-nav {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 3rem;
+  cursor: pointer;
+  padding: 0 15px;
+  user-select: none;
+  z-index: 3;
+}
+
+.carousel-nav:hover {
+  opacity: 0.7;
+}
+
+/* Estilo dos Cards */
+.news-card {
+  flex: 0 0 calc(33.333% - 14px);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-image-wrapper {
+  position: relative;
+  width: 376px;
+  height: 272px;
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: #d3d3d3;
+}
+
+.card-placeholder {
+  width: 100%;
+  height: 291px;
+  background-color: #cccccc;
+}
+
+/* Overlay escuro de informação dentro do card */
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(90, 90, 90, 0.85);
+  color: #ffffff;
+  padding: 4% 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+}
+
+.card-title {
+    max-width: 50%;
+    line-height: 1.4;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.card-date {
+  white-space: nowrap;
+  opacity: 0.9;
+  font-size: 14px;
+}
+
+.card-category {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.noticias{
+    margin-top: 52px;
+    display: grid;
+    grid-template-columns: repeat(3, 376px);
+    justify-content: center;
+    gap: 40px;
+    max-width: 981px;
+    margin: 52px auto;
+}
+
+.news-card-content {
+  margin-top: 16px;
+}
+
+.news-card-titulo {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--verde_titulo);
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.news-card-descricao {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #1a1a1a;
+    line-height: 1.4;
+    width: 100%;
+    max-width: 376px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    overflow-wrap: break-word;
+}
+
+.card-title{
+    border: 1px solid var(--roxo_card);
+    padding: 4px 9px 4px 9px;
+    border-radius: 5px;
+    background-color: var(--roxo_card);
+    font-weight: normal;
+}
