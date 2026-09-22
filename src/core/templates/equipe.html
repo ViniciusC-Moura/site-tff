@@ -78,15 +78,37 @@
                     <p>15:00</p>
                 </div>
             </div>
-            <div class="container-informacoes">
-                <div class="filtro-genero">
-                    <h2>
-                        Filtra Categoria
-                    </h2>
-                    <button type="button">Masculino</button>
-                    <button type="button">Feminino</button>
-                </div>
+            <div class="container-tecnico">
+                <h2 class="texto_tecnico ">
+                    TECNICO(A)
+                </h2>
+                <p class="texto_tecnico nome_tecnico">
+                    {{esporte.tecnico|upper}}
+                </p>
+                <h2 class="texto_tecnico">
+                    Email:
+                </h2>
+                <p class="texto_tecnico email_tecnico">
+                    wagner@gmail.com
+                </p>
             </div>
+        </section>
+        <h2 class="figurinhas_titulo">ÁLBUM DE FIGURINHAS</h2>
+        <section class="figurinhas_section" aria-labelledby="titulo-figurinhas">
+            
+            <ul class="figurinhas_grid">
+                {% for figurinha in esporte.figurinhas.all %}
+                    <li class="figurinha_card">
+                        {% if figurinha.imagem %}
+                            <img src="{{ figurinha.imagem.url }}"
+                                 alt="Figurinha {{ figurinha.pk }} de {{ esporte.nome }}"
+                                 loading="lazy" width="125" height="154">
+                        {% endif %}
+                    </li>
+                {% empty %}
+                    <li class="figurinhas_vazio">Nenhuma figurinha cadastrada para esta equipe.</li>
+                {% endfor %}
+            </ul>
         </section>
     </main>
 

@@ -15,7 +15,7 @@
             {% for esporte in esportes %}
             <div class="card_equipe">
                 <img class="icone_equipe" src="{% static 'imagens/icone_bola_basquete.png' %}" alt="icone de bola de basquete">
-                <p class="nome_equipe">{{ esporte.nome|upper }}</p>
+                <a class="nome_equipe" href="{% url 'equipe' esporte.slug %}">{{ esporte.nome|upper }}</a>
             </div>
             {% endfor %}
         </div>
