@@ -1,8 +1,5 @@
 {% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="pt-br">
-
 {% block style %}
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
 {% endblock %}
@@ -177,34 +174,7 @@
         </section>
     </main>
 
-{% endblock %}
-
-</html>
-
 <script>
-    const dropdowns = document.querySelectorAll(".dropdown-btn");
-
-    dropdowns.forEach(button => {
-        button.addEventListener("click", function (event) {
-            event.preventDefault();
-            const dropdown = this.parentElement;
-            document.querySelectorAll(".dropdown").forEach(item => {
-                if (item !== dropdown) {
-                    item.classList.remove("active");
-                }
-            });
-            dropdown.classList.toggle("active");
-        });
-    });
-
-    document.addEventListener("click", function (event) {
-        if (!event.target.closest(".dropdown")) {
-            document.querySelectorAll(".dropdown").forEach(item => {
-                item.classList.remove("active");
-            });
-        }
-    });
-
     document.addEventListener('DOMContentLoaded', () => {
     const track = document.getElementById('carouselTrack');
     const prevBtn = document.getElementById('prevBtn');
@@ -245,3 +215,5 @@
     });
     });
 </script>
+
+{% endblock %}

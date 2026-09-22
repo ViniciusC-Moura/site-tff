@@ -145,3 +145,7 @@ body{
   object-position: center;
   display: block;
 }
+
+a {
+  text-decoration: none;
+}
