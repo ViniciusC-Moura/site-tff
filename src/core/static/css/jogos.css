@@ -1,6 +1,21 @@
+/* Jogos.css */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+.titulo_pagina {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 48px;
+    color: var(--verde_titulo);
+}
+
 .filtro-form {
     max-width: 900px;
-    margin: 20px auto 16px;
+    margin: 20px auto 30px;
     background-color: #f2f2f2;
     border-radius: 12px;
     padding: 24px 32px;
@@ -11,20 +26,20 @@
     flex-wrap: wrap;
     font-family: 'Montserrat', sans-serif;
     border: 2px solid #C1C9BE;
-}   
- 
+}
+
 .filtro-form > div {
     display: flex;
     flex-direction: column;
     gap: 6px;
 }
- 
+
 .filtro-form label {
     font-size: 0.85rem;
     font-weight: 700;
     color: var(--verde_titulo);
 }
- 
+
 .filtro-form select {
     appearance: none;
     -webkit-appearance: none;
@@ -43,13 +58,13 @@
     font-family: 'Montserrat', sans-serif;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'><path d='M4 6l4 4 4-4z'/></svg>");
 }
- 
+
 .filtro-form select:hover,
 .filtro-form select:focus {
     background-color: #145232;
     outline: none;
 }
- 
+
 .filtro-form button[type="submit"] {
     display: flex;
     align-items: center;
@@ -67,12 +82,14 @@
     white-space: nowrap;
     font-family: 'Montserrat', sans-serif;
 }
- 
+
+.filtro-form button[type="submit"]:hover {
+    background-color: #40004d;
+}
+
 .filtro-form button[type="submit"]::after {
     content: "";
-    display: flex;
-    align-items: center;
-    gap: 19px;
+    display: inline-block;
     width: 16px;
     height: 16px;
     background-image: url('../imagens/lupa.png');
@@ -80,27 +97,352 @@
     background-size: contain;
     margin-top: 2px;
 }
- 
+
 .filtros-ativos {
     max-width: 900px;
-    margin: 0 480px 28px;
+    margin: 0 auto 28px;
+    text-align: center;
     font-size: 16px;
     color: #1a1a1a;
     font-family: 'Montserrat', sans-serif;
 }
- 
+
 .filtros-ativos strong {
-    color: #1a7a3c;
+    color: var(--verde_titulo);
     font-weight: 700;
 }
 
-.titulo_pagina{
-    margin-top: 50px;
+.aviso {
+    max-width: 1208px;
+    margin: 40px auto;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #6b6b6b;
 }
 
-.aviso{
-    margin-left: 480px;
+.jogos-container {
+    max-width: 1208px;
+    margin: 0 auto 60px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+div.card-jogo{
+    width: 570px;
+    height: 176px;
+    border-radius: 15px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #C1C9BE;
+    box-sizing: border-box;
+    padding: 10px 35px 15px 35px;
+}
+
+.card-jogo * {
+    font-family: 'Lexend', sans-serif !important;
+}
+
+div.mod-data-comp{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+div.mod-data-comp div{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+div.mod-data-comp p, p.local-hora{
+    color: #414941;
+    font-size: 12px;
+    font-family: 'Lexend', sans-serif;
+}
+
+div.times-placar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+div.time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+div.time img{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+div.time div{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: var(--verde_escuro);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+div.time div p{
+    color: white;
+    font-family: 'Lexend', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+div.time p {
+    color: black;
+    font-family: 'Lexend', sans-serif;
+    font-size: 12px;
+    width: 50px;
+    text-align: center;
+}
+
+.placar{
+    font-family: 'Lexend', sans-serif;
+    color: black;
+    font-size: 36px;
+}
+
+div.fase-jogo {
+    padding: 5px;
+    background-color: var(--roxo_card);
+    width: 28%;
+    margin: 0 auto;
+    border-radius: 40px;
+}
+
+div.fase-jogo p {
+    color: white;
+    text-align: center;
+    font-family: 'Lexend', sans-serif;
+    font-size: 12px;
+}
+
+.paginacao {
+    max-width: 1208px;
+    margin: 0 auto 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
     font-family: 'Montserrat', sans-serif;
-    font-size: 12px
+}
+
+.paginacao a {
+    text-decoration: none;
+    color: #ffffff;
+    background-color: var(--verde_titulo);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    transition: background-color 0.15s ease;
+}
+
+.paginacao a:hover {
+    background-color: var(--verde_card_escuro);
+}
+
+.paginacao span {
+    font-size: 14px;
+    font-weight: 600;
+    color: #414941;
+}
+
+.galeria-section {
+    max-width: 1208px;
+    margin: 90px auto 20px auto;
+    position: relative;
+    padding: 0 10px;
+}
+
+.titulo-ancora-galeria {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.titulo-ancora-galeria h2 {
+    color: var(--verde_titulo);
+    font-size: 36px;
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.titulo-ancora-galeria a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    color: var(--verde_titulo);
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Estrutura do Carrossel */
+.carousel-wrapper-galeria {
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 15px;
+}
+
+.carousel-track-container-galeria {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.carousel-track-galeria {
+    display: flex;
+    gap: 30px;
+    transition: transform 0.4s ease-in-out;
+}
+
+/* Navegação por Setas */
+.carousel-nav-galeria {
+    background: transparent;
+    border: none;
+    color: var(--verde_titulo);
+    font-size: 2.5rem;
+    cursor: pointer;
+    padding: 0 10px;
+    user-select: none;
+    z-index: 3;
+    font-weight: bold;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.carousel-nav-galeria:hover {
+    color: var(--verde_card_escuro);
+    transform: scale(1.1);
+}
+
+/* Estilo dos Cards de Foto */
+.foto-card {
+    flex: 0 0 calc(33.333% - 20px);
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    margin-bottom: 10px
+}
+
+.foto-card .card-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 260px;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: #d3d3d3;
+}
+
+.foto-card .card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.foto-card .card-placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: #cccccc;
+}
+
+/* Overlay Escuro Inferior */
+.foto-card .card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.75) 100%);
+    color: #ffffff;
+    padding: 16px 14px 12px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+}
+
+/* Tag/Selo Roxo da Competição */
+.card-badge {
+    background-color: var(--roxo_card);
+    color: #ffffff;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.card-info-text {
+    font-size: 12px;
+    font-family: 'Montserrat', sans-serif;
+    opacity: 0.9;
+    text-align: right;
+}
+
+/* Nome da Categoria / Esporte */
+.foto-card .card-category {
+    color: var(--verde_titulo);
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+    font-family: 'Montserrat', sans-serif;
+    line-height: normal;
+}
+
+/* Mensagem de Vazio */
+.galeria-vazia {
+    width: 100%;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.aviso-galeria {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #6b6b6b;
+}
+
+/* Paginação por Pontos */
+.carousel-pagination-galeria {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.carousel-pagination-galeria .dot {
+    width: 14px;
+    height: 14px;
+    background-color: #c1c9be;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.carousel-pagination-galeria .dot.active {
+    background-color: var(--verde_titulo);
+}
+
+.seta{
+    margin-right: 2em;
 }
 
