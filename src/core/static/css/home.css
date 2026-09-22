@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 
+/* Home.css */
+
 :root{
     --verde_header_footer: #2e6f28;
     --roxo_carrossel: #760a8c;
@@ -131,7 +133,7 @@ section.camisa-inicio {
 
 .camisa-preco p{
     font-family: 'Anton', sans-serif;
-    font-weight: bold;
+    font-weight: normal;
     font-size: 30px;
     color: white;
 }

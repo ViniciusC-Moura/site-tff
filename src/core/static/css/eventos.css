@@ -37,6 +37,10 @@ h3 {
     color: var(--verde_titulo)
 }
 
+.footer-coluna h3 {
+    color: white;
+}
+
 main{
     margin-top: 50px;
     text-align: center;

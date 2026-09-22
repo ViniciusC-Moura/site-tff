@@ -1,14 +1,11 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="pt-br">
 
 {% block style %}
     <link rel="stylesheet" href="{% static 'css/jogos.css' %}">
 {% endblock %}
 
 {% block content %}
-
     <main>
         <h1 class="titulo_pagina">JOGOS</h1>
 
@@ -43,35 +40,37 @@
         </p>
         {% endif %}
 
-        <div class="jogos-grid">
+        <div class="jogos-container">
             {% for jogo in jogos %}
-            <div class="jogo-card">
-                <div class="jogo-header">
-                    <span>{{ jogo.get_modalidade_display|default:jogo.modalidade }} •
-                        {{ jogo.data_hora|date:"d/m" }}</span>
-                    <span>{{ jogo.competicao|upper }} {{ jogo.edicao }}-{{ jogo.fase_competicao|upper }}</span>
+            <div class="card-jogo">
+                <div class="mod-data-comp">
+                    <div>
+                        <img src="{% static 'imagens/icone_bola_futebol_16px.png' %}" alt="Ícone de bola de futebol">
+                        <p>{{ jogo.get_modalidade_display|default:jogo.modalidade|upper }} • {{ jogo.data_hora|date:"d/m" }}</p>
+                    </div>
+                    <p>{{ jogo.competicao|upper }} {{ jogo.edicao }} - {{ jogo.fase_competicao|upper }}</p>
                 </div>
-                <div class="jogo-hora-local">
-                    {{ jogo.data_hora|date:"H\H" }} - {{ jogo.local }}
-                </div>
-                <div class="jogo-placar">
+                <p class="local-hora">{{ jogo.data_hora|date:"H\H" }} - {{ jogo.local|upper }}</p>
+                <div class="times-placar">
                     <div class="time">
-                        <div class="escudo">CNAT</div>
-                        <span>CNAT</span>
+                        <img src="{% static 'imagens/cnat_escudo.png' %}" alt="CNAT">
+                        <p>CNAT</p>
                     </div>
 
                     {% if jogo.status == 'finalizado' %}
-                    <span class="placar">{{ jogo.placar_cnat }} - {{ jogo.placar_adversario }}</span>
+                    <p class="placar">{{ jogo.placar_cnat }} - {{ jogo.placar_adversario }}</p>
                     {% else %}
-                    <span class="placar">X</span>
+                    <p class="placar">X</p>
                     {% endif %}
 
                     <div class="time">
-                        <div class="escudo">ADV</div>
-                        <span>{{ jogo.nome_adversario|upper }}</span>
+                        <div><p>{{ jogo.nome_adversario|slice:":3"|upper|default:"ADV" }}</p></div>
+                        <p>{{ jogo.nome_adversario }}</p>
                     </div>
                 </div>
-                <span class="badge-fase">{{ jogo.fase_jogo|upper }}</span>
+                <div class="fase-jogo">
+                    <p>{{ jogo.fase_jogo|upper }}</p>
+                </div>
             </div>
             {% empty %}
             <p class="aviso">Nenhum jogo encontrado com esses filtros.</p>
@@ -89,8 +88,120 @@
             {% endif %}
         </div>
         {% endif %}
+
+        <!-- SEÇÃO DA GALERIA -->
+        <section class="galeria-section">
+            <div class="titulo-ancora-galeria">
+                <h2>GALERIA</h2>   
+                <a class="seta" href="#">Todas as fotos <img src="{% static 'imagens/seta_todos.png' %}" alt="Seta"></a>
+            </div>
+
+            <div class="carousel-wrapper-galeria">
+                <button class="carousel-nav-galeria prev" id="prevBtnGaleria" aria-label="Anterior">
+                    &#10094;
+                </button>
+
+                <div class="carousel-track-container-galeria">
+                    <div class="carousel-track-galeria" id="carouselTrackGaleria">
+                    
+                    {% for foto in fotos %}
+                        <article class="foto-card">
+                            <div class="card-image-wrapper">
+                                {% if foto.imagem %}
+                                    <img src="{{ foto.imagem.url }}" alt="Foto {{ foto.esporte }}">
+                                {% else %}
+                                    <div class="card-placeholder"></div>
+                                {% endif %}
+                            </div>
+
+                            <p class="card-category">{{ foto.esporte.nome|default:foto.esporte }}</p>
+                        </article>
+                    {% empty %}
+                        <div class="galeria-vazia">
+                            <p class="aviso-galeria">Nenhuma foto encontrada com esses filtros.</p>
+                        </div>
+                    {% endfor %}
+
+                    </div>
+                </div>
+
+                <button class="carousel-nav-galeria next" id="nextBtnGaleria" aria-label="Próximo">
+                    &#10095;
+                </button>
+            </div>
+
+            {% if fotos %}
+            <div class="carousel-pagination-galeria" id="carouselPaginationGaleria"></div>
+            {% endif %}
+        </section>
+
     </main>
 
-{% endblock %}
+    <!-- O SCRIPT PRECISA FICAR DENTRO DO BLOCK CONTENT -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const trackGaleria = document.getElementById('carouselTrackGaleria');
+        const prevBtnGaleria = document.getElementById('prevBtnGaleria');
+        const nextBtnGaleria = document.getElementById('nextBtnGaleria');
+        const paginationContainer = document.getElementById('carouselPaginationGaleria');
+        const cardsGaleria = trackGaleria ? trackGaleria.querySelectorAll('.foto-card') : [];
 
-</html>
+        if (cardsGaleria.length > 0) {
+            let currentIndex = 0;
+            const visibleCards = 3;
+            const totalPages = Math.ceil(cardsGaleria.length / visibleCards);
+
+            // Oculta setas e paginação se houver 3 ou menos fotos
+            if (cardsGaleria.length <= visibleCards) {
+                if (prevBtnGaleria) prevBtnGaleria.style.display = 'none';
+                if (nextBtnGaleria) nextBtnGaleria.style.display = 'none';
+                if (paginationContainer) paginationContainer.style.display = 'none';
+                return;
+            }
+
+            // Criar os pontos de paginação dinamicamente
+            if (paginationContainer) {
+                paginationContainer.innerHTML = '';
+                for (let i = 0; i < totalPages; i++) {
+                    const dot = document.createElement('span');
+                    dot.classList.add('dot');
+                    if (i === 0) dot.classList.add('active');
+                    dot.addEventListener('click', () => {
+                        currentIndex = i;
+                        updateCarousel();
+                    });
+                    paginationContainer.appendChild(dot);
+                }
+            }
+
+            function updateCarousel() {
+                const containerWidth = trackGaleria.parentElement.clientWidth;
+                trackGaleria.style.transform = `translateX(-${currentIndex * containerWidth}px)`;
+
+                const dots = paginationContainer ? paginationContainer.querySelectorAll('.dot') : [];
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+
+            if (nextBtnGaleria) {
+                nextBtnGaleria.addEventListener('click', () => {
+                    if (currentIndex < totalPages - 1) {
+                        currentIndex++;
+                        updateCarousel();
+                    }
+                });
+            }
+
+            if (prevBtnGaleria) {
+                prevBtnGaleria.addEventListener('click', () => {
+                    if (currentIndex > 0) {
+                        currentIndex--;
+                        updateCarousel();
+                    }
+                });
+            }
+        }
+    });
+    </script>
+{% endblock %}
