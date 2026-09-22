@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/noticia.css' %}">
+{% endblock %}
+
+{% block content %}
+    <main>
+
+        <h2>{{ noticia.titulo }}</h2>
+
+        <div class="noticia-infos">
+            <div class="tag">
+                <img src="{% static 'imagens/icone-data.png' %}" alt="Data da notícia">
+                <p>{{ noticia.data|date:"d / m / Y" }}</p>
+            </div>
+
+            {% for tag in noticia.tags.all %}
+                <div class="tag">
+                    <img src="{% static 'imagens/icone-tag.png' %}" alt="Tag da notícia">
+                    <p>{{ tag.nome }}</p>
+                </div>
+            {% endfor %}
+        </div>
+
+        <section class="artigo">
+            <p class="noticia-descricao">
+                {{ noticia.descricao }}
+            </p>
+
+            {% if noticia.imagem %}
+                <figure><img src="{{ noticia.imagem.url }}" alt="{{ noticia.titulo }}"></figure>
+            {% else %}
+            {% endif %}
+
+            <p class="noticia-conteudo">
+                {{ noticia.conteudo }}
+            </p>
+        </section>
+
+    </main>
+{% endblock %}
