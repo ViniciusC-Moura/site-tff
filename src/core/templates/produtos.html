@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/produtos.css' %}">
+{% endblock %}
+
+{% block content %}
+    <main>
+
+        <div class="banner-loja">
+            <div class="banner-loja-texto">
+                <p class="subtitulo">PRODUTOS DA TFF</p>
+                <h2>LOJA <br>
+                    <span>OFICIAL</span>
+                </h2>
+                <p>Compre aqui os mais novos produtos da TFF e acompanhe todos os lançamentos para apoiar nosso time!</p>
+            </div>
+            <figure>
+                <img src="{% static 'imagens/pantera-loja.png' %}" alt="Pantera da TFF">
+            </figure>
+        </div>
+
+        <section class="grade-produtos">
+            {% if produtos|length == 0 %}
+                <p class="sem-produtos">Nenhum produto disponível no momento.</p>
+            {% else %}
+                {% for produto in produtos %}
+                    <div class="produto">
+                    {% if produto.imagem %}
+                        <div class="produto-imagem-container">
+                            <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}">
+                        </div>
+                    {% else %}
+                        <div class="placeholder"></div>
+                    {% endif %}
+                        <div class="produto-info">
+                            <h3>{{ produto.nome|upper }}</h3>
+                            <div class="preco-parcelas">
+                                <p class="preco">R$ {{ produto.preco|floatformat:2 }}</p>
+                                <p class="parcelas">OU ATÉ <strong>{{ produto.parcelas }}</strong>x de R$ <strong>{{ produto.valor_parcela|floatformat:2 }}</strong></p>
+                            </div>
+                        </div>
+                            <a href="{{ produto.link }}" target="_blank" class="botao-compra">
+                                <img src="{% static 'imagens/icone-carrinho.png' %}" alt="">
+                                <p>COMPRAR</p>
+                            </a>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </section>
+    </main>
+{% endblock %}

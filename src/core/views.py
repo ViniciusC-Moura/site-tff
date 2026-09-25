@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Esporte, Gestor, Jogo, Noticia, Evento, Foto
+from .models import Esporte, Gestor, Jogo, Noticia, Evento, Foto, Produto
 from django.core.paginator import Paginator
 from .filters import JogoFilter
 
@@ -106,4 +106,6 @@ def eventos(request):
     eventos = Evento.objects.all().order_by('-data_hora')
     return render(request, 'eventos.html', {'eventos': eventos,})
 
-
+def produtos(request):
+    produtos = Produto.objects.all()
+    return render(request, 'produtos.html', {'produtos': produtos})
