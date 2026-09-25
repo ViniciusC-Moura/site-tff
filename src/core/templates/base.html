@@ -39,7 +39,7 @@
                 </ul>
             </li>
 
-            <li><a href="">Vendas</a></li>
+            <li><a href="{% url 'produtos' %}">Vendas</a></li>
             <li><a href="{% url 'contato' %}">Contato</a></li>
         </ul>
     </nav>
@@ -69,21 +69,21 @@
         <div class="footer-bottom">
             <div class="footer-coluna">
                 <h3>Torcida</h3>
-                <a href="">Sobre</a>
-                <a href="">Gestão</a>
+                <a href="{% url 'sobre_nos' %}">Sobre</a>
+                <a href="{% url 'gestao' %}">Gestão</a>
             </div>
 
             <div class="footer-coluna">
                 <h3>Esportes</h3>
-                <a href="">Intercampi</a>
-                <a href="">Jogos</a>
-                <a href="">Equipes</a>
+                <a href="https://portal.ifrn.edu.br/institucional/comunicacao/eventos/local/jogos/jogos-intercampi-estudantis-2026/">Intercampi</a>
+                <a href="{% url 'jogos' %}">Jogos</a>
+                <a href="{% url 'equipes' %}">Equipes</a>
             </div>
 
             <div class="footer-coluna">
                 <h3>Comunicação</h3>
-                <a href="">Notícias</a>
-                <a href="">Eventos</a>
+                <a href="{% url 'noticias' %}">Notícias</a>
+                <a href="{% url 'eventos' %}">Eventos</a>
             </div>
 
             <p class="copyright">2026, Equipe de desenvolvimento</p>

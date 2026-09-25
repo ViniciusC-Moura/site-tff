@@ -33,6 +33,7 @@ urlpatterns = [
     path('noticias/<int:id_noticia>', views.noticia, name="noticia"),
     path('contato', views.contato, name="contato"),
     path('eventos/<int:evento_id>/fotos/', views.fotos_evento, name="fotos_evento"),
+    path('produtos', views.produtos, name="produtos"),
 ]
 
 if settings.DEBUG:
