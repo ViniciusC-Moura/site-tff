@@ -46,7 +46,7 @@
 
             <div class="titulo-ancora">
                 <h2>NOTÍCIAS</h2>   
-                <a href="">Todas as notícias <img src="{% static 'imagens/seta.png' %}" alt="Seta"></a>
+                <a href="{% url 'noticias' %}">Todas as notícias <img src="{% static 'imagens/seta.png' %}" alt="Seta"></a>
             </div>
 
             <div class="carousel-wrapper">
@@ -91,12 +91,7 @@
                 <button class="carousel-nav next" id="nextBtn" aria-label="Próximo"><img src="{% static 'imagens/seta-carrossel-direita.png' %}" alt="Seta posterior"></button>
         </div>
 
-    <div class="carousel-pagination" id="carouselPagination">
-      <span class="dot active"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
+    <div class="carousel-pagination" id="carouselPagination"></div>
   </div>
 
             <img src="{% static 'imagens/garra-roxa-direita.png' %}" alt="Textura de garra" id="garra-direita">
@@ -175,45 +170,192 @@
     </main>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
+
     const track = document.getElementById('carouselTrack');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
-    const dots = document.querySelectorAll('.dot');
+    const pagination = document.getElementById('carouselPagination');
+
     const cards = document.querySelectorAll('.news-card');
 
     let currentIndex = 0;
 
-    function updateCarousel(index) {
-        const cardWidth = cards[0].getBoundingClientRect().width + 20; // 20px é o gap
-        track.style.transform = `translateX(-${index * cardWidth}px)`;
-
-        dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === index);
-        });
+    // Se não houver notícias, não faz nada
+    if (cards.length === 0) {
+        prevBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+        pagination.style.display = 'none';
+        return;
     }
 
-    nextBtn.addEventListener('click', () => {
-        if (currentIndex < cards.length - 2) {
-        currentIndex++;
-        updateCarousel(currentIndex);
-        }
-    });
+    /*
+     * Quantos cards cabem dentro da área visível
+     */
+    function getVisibleCards() {
+        const containerWidth =
+            document.querySelector('.carousel-track-container')
+                .getBoundingClientRect().width;
 
-    prevBtn.addEventListener('click', () => {
-        if (currentIndex > 0) {
-        currentIndex--;
-        updateCarousel(currentIndex);
-        }
-    });
+        const cardWidth =
+            cards[0].getBoundingClientRect().width;
 
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-        currentIndex = index; 
-        updateCarousel(currentIndex);
+        const gap =
+            parseFloat(getComputedStyle(track).gap) || 0;
+
+        return Math.max(
+            1,
+            Math.floor((containerWidth + gap) / (cardWidth + gap))
+        );
+    }
+
+    /*
+     * Quantas posições o carrossel possui
+     */
+    function getMaxIndex() {
+        const visibleCards = getVisibleCards();
+
+        return Math.max(
+            0,
+            cards.length - visibleCards
+        );
+    }
+
+    /*
+     * Cria somente as bolinhas necessárias
+     */
+    function createDots() {
+
+        pagination.innerHTML = '';
+
+        const maxIndex = getMaxIndex();
+
+        // Exemplo:
+        // 1 posição = 1 bolinha
+        // 2 posições = 2 bolinhas
+        // 3 posições = 3 bolinhas
+
+        for (let i = 0; i <= maxIndex; i++) {
+
+            const dot = document.createElement('span');
+
+            dot.classList.add('dot');
+
+            if (i === currentIndex) {
+                dot.classList.add('active');
+            }
+
+            dot.addEventListener('click', () => {
+                currentIndex = i;
+                updateCarousel();
+            });
+
+            pagination.appendChild(dot);
+        }
+    }
+
+    /*
+     * Atualiza o carrossel
+     */
+    function updateCarousel() {
+
+        const maxIndex = getMaxIndex();
+
+        // Impede passar do último conteúdo
+        if (currentIndex > maxIndex) {
+            currentIndex = maxIndex;
+        }
+
+        if (currentIndex < 0) {
+            currentIndex = 0;
+        }
+
+        const cardWidth =
+            cards[0].getBoundingClientRect().width;
+
+        const gap =
+            parseFloat(getComputedStyle(track).gap) || 0;
+
+        const deslocamento =
+            currentIndex * (cardWidth + gap);
+
+        track.style.transform =
+            `translateX(-${deslocamento}px)`;
+
+        /*
+         * Atualiza as bolinhas
+         */
+        const dots =
+            pagination.querySelectorAll('.dot');
+
+        dots.forEach((dot, index) => {
+            dot.classList.toggle(
+                'active',
+                index === currentIndex
+            );
         });
+
+        /*
+         * Desabilita as setas quando necessário
+         */
+        prevBtn.style.opacity =
+            currentIndex === 0 ? '0.4' : '1';
+
+        nextBtn.style.opacity =
+            currentIndex === maxIndex ? '0.4' : '1';
+
+        prevBtn.disabled =
+            currentIndex === 0;
+
+        nextBtn.disabled =
+            currentIndex === maxIndex;
+    }
+
+    /*
+     * Próximo
+     */
+    nextBtn.addEventListener('click', () => {
+
+        const maxIndex = getMaxIndex();
+
+        if (currentIndex < maxIndex) {
+
+            currentIndex++;
+
+            updateCarousel();
+        }
     });
+
+    /*
+     * Anterior
+     */
+    prevBtn.addEventListener('click', () => {
+
+        if (currentIndex > 0) {
+
+            currentIndex--;
+
+            updateCarousel();
+        }
     });
+
+    /*
+     * Recalcula quando a janela muda de tamanho
+     */
+    window.addEventListener('resize', () => {
+
+        createDots();
+        updateCarousel();
+
+    });
+
+    /*
+     * Inicialização
+     */
+    createDots();
+    updateCarousel();
+
+});
 </script>
 
 {% endblock %}

@@ -106,4 +106,21 @@ def eventos(request):
     eventos = Evento.objects.all().order_by('-data_hora')
     return render(request, 'eventos.html', {'eventos': eventos,})
 
+def contato(request):
+    return render(request, 'contato.html')
+
+def fotos_evento(request, evento_id):
+
+    evento = get_object_or_404(Evento, id=evento_id)
+
+    fotos = evento.fotos.all()
+
+    return render(
+        request,
+        'fotos_evento.html',
+        {
+            'evento': evento,
+            'fotos': fotos,
+        }
+    )
 

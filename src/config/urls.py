@@ -30,7 +30,9 @@ urlpatterns = [
     path('noticias', views.noticias, name="noticias"),
     path('eventos', views.eventos, name="eventos"),
     path('equipes/<str:nome_esporte>', views.equipe, name="equipe"),
-    path('noticias', views.noticias, name="noticias"),
+    path('noticias/<int:id_noticia>', views.noticia, name="noticia"),
+    path('contato', views.contato, name="contato"),
+    path('eventos/<int:evento_id>/fotos/', views.fotos_evento, name="fotos_evento"),
 ]
 
 if settings.DEBUG:

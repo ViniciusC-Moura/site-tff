@@ -1,0 +1,99 @@
+.fotos-main {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0px 30px 80px;
+    box-sizing: border-box;
+}
+
+.fotos-main h2 {
+    margin: 0;
+    text-align: center;
+
+    color: #078c00;
+
+    font-size: 40px;
+    font-weight: 800;
+}
+
+.grade-fotos {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+
+    margin-top: 35px;
+}
+
+.foto-card {
+    width: 100%;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    background: #fff;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.foto-card img {
+    display: block;
+
+    width: 100%;
+    height: 250px;
+
+    object-fit: cover;
+
+    transition: transform 0.3s ease;
+}
+
+.foto-card:hover img {
+    transform: scale(1.04);
+}
+
+.sem-fotos {
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    font-size: 18px;
+
+    margin-top: 10px;
+}
+
+
+/* TABLET */
+
+@media (max-width: 800px) {
+
+    .grade-fotos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* CELULAR */
+
+@media (max-width: 500px) {
+
+    .fotos-main {
+        padding: 0px 20px 60px;
+    }
+
+    .fotos-main h2 {
+        font-size: 32px;
+    }
+
+    .grade-fotos {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .foto-card img {
+        height: 250px;
+    }
+
+}
