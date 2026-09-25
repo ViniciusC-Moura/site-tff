@@ -109,3 +109,21 @@ def eventos(request):
 def produtos(request):
     produtos = Produto.objects.all()
     return render(request, 'produtos.html', {'produtos': produtos})
+def contato(request):
+    return render(request, 'contato.html')
+
+def fotos_evento(request, evento_id):
+
+    evento = get_object_or_404(Evento, id=evento_id)
+
+    fotos = evento.fotos.all()
+
+    return render(
+        request,
+        'fotos_evento.html',
+        {
+            'evento': evento,
+            'fotos': fotos,
+        }
+    )
+

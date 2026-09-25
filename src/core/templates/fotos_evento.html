@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/fotos_evento.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<main class="fotos-main">
+
+    <h1 class="titulo_pagina">{{ evento.titulo }}</h1>
+
+    <div class="grade-fotos">
+
+        {% for foto in fotos %}
+
+            <div class="foto-card">
+
+                <img
+                    src="{{ foto.imagem.url }}"
+                    alt="Foto do evento {{ evento.titulo }}"
+                >
+
+            </div>
+
+        {% empty %}
+
+            <p class="sem-fotos">
+                Ainda não existem fotos para este evento.
+            </p>
+
+        {% endfor %}
+
+    </div>
+
+</main>
+
+{% endblock %}

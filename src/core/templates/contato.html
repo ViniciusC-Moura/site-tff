@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/contato.css' %}">
+{% endblock %}
+{% block content %}
+    <main>
+        <h1 class="titulo_pagina">Contato</h1>
+        <div class="contato-container">
+
+        <!-- FORMULÁRIO -->
+        <section class="contato-form-box">
+
+            <form class="contato-form">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nome">SEU NOME</label>
+                        <input
+                            type="text"
+                            id="nome"
+                            name="nome"
+                            placeholder="Escreva aqui..."
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">ENDEREÇO DE EMAIL</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="tff@gmail.com"
+                        >
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="assunto">ASSUNTO</label>
+                    <input
+                        type="text"
+                        id="assunto"
+                        name="assunto"
+                        placeholder="Escreva aqui..."
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="mensagem">MENSAGEM</label>
+                    <textarea
+                        id="mensagem"
+                        name="mensagem"
+                        placeholder="Como podemos ajudá-lo?"
+                    ></textarea>
+                </div>
+
+                <button type="submit" class="btn-enviar">
+                    ENVIAR MENSAGEM
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- INFORMAÇÕES DE CONTATO -->
+        <aside class="contato-info">
+
+            <!-- EMAIL -->
+            <a href="mailto:tff@gmail.com.br" class="contato-card">
+                <div class="contato-icon">
+                    <img class="email" src="{% static 'imagens/email.png' %}" alt="Email">
+                </div>
+
+                <div class="contato-card-text">
+                    <small>CONTATE-NOS POR EMAIL:</small>
+                    <strong>tff@gmail.com.br</strong>
+                </div>
+            </a>
+
+
+            <!-- TIKTOK -->
+            <a href="#" class="contato-card">
+                <div class="contato-icon">
+                    <img src="{% static 'imagens/tik_tok.png' %}" alt="tik_tok">
+                </div>
+
+                <div class="contato-card-text">
+                    <small>CONTATE-NOS PELO TIK TOK:</small>
+                    <strong>@torcidafuriafederal</strong>
+                </div>
+            </a>
+
+
+            <!-- INSTAGRAM -->
+            <a href="#" class="contato-card">
+                <div class="contato-icon">
+                    <img src="{% static 'imagens/instagram.png' %}" alt="tik_tok">
+                </div>
+
+                <div class="contato-card-text">
+                    <small>CONTATE-NOS PELO INSTAGRAM:</small>
+                    <strong>@torcidafuriafederal</strong>
+                </div>
+            </a>
+
+
+            <!-- WHATSAPP -->
+            <div class="whatsapp-box">
+                <h2>FAÇA PARTE DO GRUPO DA TFF NO WHATSAPP</h2>
+
+                <a href="#" class="btn-whatsapp">
+                    <span class="whatsapp-arrow">↗</span>
+                    <span>FAÇA PARTE!</span>
+                </a>
+            </div>
+
+        </aside>
+
+    </div>
+    </main>
+{% endblock %}
