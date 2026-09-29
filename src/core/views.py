@@ -40,7 +40,8 @@ def jogos(request):
         fotos = fotos.filter(fase_competicao=fase_competicao)
 
     if modalidade:
-        fotos = fotos.filter(esporte_id=modalidade)
+
+        fotos = fotos.filter(esporte__nome=modalidade)
 
     # Limita em no máximo 12 fotos para o carrossel
     fotos = fotos[:12]
@@ -86,7 +87,14 @@ def equipes(request):
 
 def equipe(request, nome_esporte):
     esporte = get_object_or_404(Esporte, slug=nome_esporte)
-    return render(request, 'equipe.html', {'esporte': esporte})
+    imagens_esporte = [
+        imagem for imagem in (esporte.imagem1, esporte.imagem2, esporte.imagem3)
+        if imagem
+    ]
+    return render(request, 'equipe.html', {
+        'esporte': esporte,
+        'imagens_esporte': imagens_esporte,
+    })
 
 def noticias(request):
     noticias = Noticia.objects.all().order_by('-data')

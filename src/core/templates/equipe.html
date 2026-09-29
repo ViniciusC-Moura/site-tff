@@ -1,37 +1,68 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/equipe.css' %}">
+{% endblock %}
 {% block content %}
     <main>
         <h1 class="titulo_pagina">{{ esporte.nome|upper }}</h1>
         <section class="inicio-esporte">
-            <div class="carrosel"></div>
+            <section class="carrosel" data-carrossel role="region" aria-roledescription="carrossel" aria-label="Fotos de {{ esporte.nome }}">
+                <div class="carrossel-slides" aria-live="polite" aria-atomic="true">
+                    {% for imagem in imagens_esporte %}
+                        <div class="carrossel-slide" role="group" aria-roledescription="slide" aria-label="{{ forloop.counter }} de {{ imagens_esporte|length }}"{% if not forloop.first %} hidden{% endif %}>
+                            <img src="{{ imagem.url }}" alt="Foto {{ forloop.counter }} da equipe de {{ esporte.nome }}" width="570" height="374"{% if not forloop.first %} loading="lazy"{% endif %}>
+                        </div>
+                    {% empty %}
+                        <p class="carrossel-vazio">Nenhuma foto cadastrada para esta equipe.</p>
+                    {% endfor %}
+                </div>
+                {% if imagens_esporte|length > 1 %}
+                    <div class="carrossel-controles" hidden>
+                        <button class="carrossel-seta carrossel-anterior" type="button" aria-label="Foto anterior">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 3-9 9 9 9" /></svg>
+                        </button>
+                        <button class="carrossel-seta carrossel-proxima" type="button" aria-label="Pr?xima foto">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 3 9 9-9 9" /></svg>
+                        </button>
+                        <div class="carrossel-indicadores" role="group" aria-label="Escolher foto">
+                            {% for imagem in imagens_esporte %}
+                                <button class="carrossel-indicador" type="button" aria-label="Mostrar foto {{ forloop.counter }}" aria-current="{% if forloop.first %}true{% else %}false{% endif %}"></button>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+            </section>
             <div class="container-seletivas">
                 <div class="titulo-seletiva">
                     <h2>SELETIVAS</h2>
                     <div><img src="{% static 'imagens/icone_seletiva.png' %}" alt="Ícone de seletiva"></div>
                 </div>
-                <div class="conteudo-seletiva">
-                    <div class="icones-seletiva">
-                        <img src="{% static 'imagens/icone_data_seletiva.png' %}" alt="Ícone de data de seletiva">
-                        <h3>DATA</h3>
+                {% if esporte.seletiva %}
+                    <div class="conteudo-seletiva">
+                        <div class="icones-seletiva">
+                            <img src="{% static 'imagens/icone_data_seletiva.png' %}" alt="Ícone de data de seletiva">
+                            <h3>DATA</h3>
+                        </div>
+                        <p>{{esporte.seletiva.data|date:"d/m/Y"}}</p>
                     </div>
-                    <p>01/01/2023</p>
-                </div>
-                <div class="conteudo-seletiva">
-                    <div class="icones-seletiva">
-                        <img src="{% static 'imagens/icone_local_seletiva.png' %}" alt="Ícone de local de seletiva">
-                        <h3>LOCAL</h3>
+                    <div class="conteudo-seletiva">
+                        <div class="icones-seletiva">
+                            <img src="{% static 'imagens/icone_local_seletiva.png' %}" alt="Ícone de local de seletiva">
+                            <h3>SELETIVA</h3>
+                        </div>
+                        <p>{{esporte.seletiva.local|upper}}</p>
                     </div>
-                    <p>Estádio Municipal</p>
-                </div>
-                <div class="conteudo-seletiva">
-                    <div class="icones-seletiva">
-                        <img src="{% static 'imagens/icone_hora_seletiva.png' %}" alt="Ícone de hora de seletiva">
-                        <h3>HORA</h3> 
+                    <div class="conteudo-seletiva">
+                        <div class="icones-seletiva">
+                            <img src="{% static 'imagens/icone_hora_seletiva.png' %}" alt="Ícone de hora de seletiva">
+                            <h3>HORA</h3> 
+                        </div>
+                        <p>{{esporte.seletiva.hora}}</p>
                     </div>
-                    <p>15:00</p>
-                </div>
+                {% else %}
+                    <p>Sem seletivas atualmente</p>
+                {% endif %}
             </div>
             <div class="container-tecnico">
                 <h2 class="texto_tecnico ">
@@ -44,7 +75,7 @@
                     Email:
                 </h2>
                 <p class="texto_tecnico email_tecnico">
-                    wagner@gmail.com
+                    {{esporte.email_tecnico}}
                 </p>
             </div>
         </section>
@@ -66,4 +97,5 @@
             </ul>
         </section>
     </main>
+    <script src="{% static 'js/equipe.js' %}" defer></script>
 {% endblock %}

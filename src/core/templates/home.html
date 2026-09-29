@@ -110,7 +110,7 @@
                 <div class="card-jogo">
                     <div class="mod-data-comp">
                         <div><img src="{% static 'imagens/icone_bola_futebol_16px.png' %}" alt="Ícone de bola de futebol"><p>{{ jogo.modalidade|upper}} • {{ jogo.data_hora|date:"d/m" }}</p></div>
-                        <p>{{ jogo.competicao|upper}} - {{ jogo.fase_competicao|upper}}</p>
+                        <p>{{ jogo.competicao|upper}} - {{ jogo.get_fase_competicao_display|upper}}</p>
                     </div>
                     <p class="local-hora">{{ jogo.data_hora|date:"H\H" }} - {{ jogo.local|upper }}</p>
                     <div class="times-placar">
