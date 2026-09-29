@@ -62,8 +62,13 @@ main {
     gap: 20px;
 }
 
+figure {
+    align-self: center;
+}
+
 figure img{
-    width: 100% ;
+    width: 100%;
+    max-height: 700px;
 }
 
 .noticia-descricao, .noticia-conteudo {
