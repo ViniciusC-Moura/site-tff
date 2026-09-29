@@ -17,9 +17,14 @@
 }
 
 *{
-    margin: 0%;
+    margin: 0;
     padding: 0;
 }
+
+
+/* =========================================
+   TIPOGRAFIA GERAL
+========================================= */
 
 h2 {
     font-family: 'Anton', sans-serif;
@@ -41,78 +46,138 @@ p.subtitulo {
     letter-spacing: 2px;
 }
 
-main {
-    padding: 0px 356px 0px 356px;
-}
-
-div.banner-loja {
-    margin-top: 40px;
-    background-color: #145210;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-}
-
-div.banner-loja-texto {
-    padding: 0px 48px 0px 48px;
-    display: flex;
-    flex-direction: column;
-    gap: 2px
-}
-
-div.banner-loja-texto p{
-    font-family: 'Hanken Grotesk', sans-serif;
-    color: white;
-    line-height: 28px;
-    font-weight: 300;
-}
-
-figure img {
-    mix-blend-mode: hard-light;
-}
-
-
-
-
-.grade-produtos{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.produto-imagem-container, div.placeholder {
-    width: 100%;
-    height: 320px;
-    background-image: radial-gradient(circle, var(--verde_card_escuro), var(--verde_escuro));
-    border-radius: 10px 10px 0 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.produto {
-    width: 360px;
-    border: 1px solid #989898;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding-bottom: 20px;
-}
-
 h3 {
     font-family: 'Lexend', sans-serif;
     font-size: 16px;
     font-weight: 400;
 }
 
+main {
+    padding: 0 356px;
+}
+
+
+/* =========================================
+   BANNER (desktop)
+========================================= */
+
+div.banner-loja {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 320px;
+    margin-top: 40px;
+
+    background-color: #145210;
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+}
+
+div.banner-loja-texto {
+    position: relative;
+    z-index: 1;
+
+    box-sizing: border-box;
+    max-width: 62%;
+    padding: 32px 0 32px 48px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+div.banner-loja-texto p {
+    font-family: 'Hanken Grotesk', sans-serif;
+    color: white;
+    line-height: 28px;
+    font-weight: 300;
+}
+
+/* pantera como fundo do banner */
+div.banner-loja figure {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+}
+
+div.banner-loja figure img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: 100% bottom;
+
+    mix-blend-mode: hard-light;
+}
+
+
+/* =========================================
+   GRADE DE PRODUTOS
+========================================= */
+
+.grade-produtos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.sem-produtos {
+    grid-column: 1 / -1;
+}
+
+
+/* =========================================
+   CARD DO PRODUTO
+========================================= */
+
+.produto {
+    width: 100%;
+
+    border: 1px solid #989898;
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    padding-bottom: 20px;
+}
+
+.produto-imagem-container,
+div.placeholder {
+    width: 100%;
+    height: 320px;
+
+    background-image: radial-gradient(circle, var(--verde_card_escuro), var(--verde_escuro));
+    border-radius: 10px 10px 0 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.produto-imagem-container img,
+.placeholder img {
+    width: 360px;
+    height: 320px;
+
+    background-image: radial-gradient(circle, var(--verde_card_escuro), var(--verde_escuro));
+    border-radius: 10px 10px 0 0;
+
+    object-fit: contain;
+    padding: 20px !important;
+    box-sizing: border-box;
+}
+
 .produto-info {
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    padding: 0px 20px 0px 20px;
-    gap: 15px;
+    gap: 9px;
+
+    padding: 0 20px;
 }
 
 .preco-parcelas {
@@ -128,19 +193,29 @@ h3 {
 .parcelas {
     font-family: 'Lexend', sans-serif;
     font-size: 12px;
+    margin-top: 2px;
 }
+
+
+/* =========================================
+   BOTÃO COMPRAR
+========================================= */
 
 a.botao-compra {
     width: 90%;
-    background-color: var(--roxo_card);
     margin: 0 auto;
+
+    background-color: var(--roxo_card);
+
     display: flex;
-    text-decoration: none;
     align-items: center;
     justify-content: center;
     gap: 10px;
+
+    padding: 12px 0;
     border-radius: 8px;
-    padding: 12px 0px 12px 0px;
+
+    text-decoration: none;
 }
 
 .botao-compra p {
@@ -150,12 +225,183 @@ a.botao-compra {
     text-align: center;
 }
 
-.produto-imagem-container img, .placeholder img {
-    width: 360px;
-    height: 320px;
-    background-image: radial-gradient(circle, var(--verde_card_escuro), var(--verde_escuro));
-    border-radius: 10px 10px 0 0;
-    object-fit: contain;
-    padding: 20px !important;
-    box-sizing: border-box;
+
+/* =========================================
+   TELAS MÉDIAS (fluido)
+========================================= */
+
+@media (max-width: 1600px) {
+
+    main {
+        padding: 0 5vw 60px;
+    }
+
+    .grade-produtos {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .produto {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .produto-imagem-container img,
+    .placeholder img {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .grade-produtos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    h2 {
+        font-size: 56px;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE (protótipo de 671px)
+========================================= */
+
+@media (max-width: 700px) {
+
+    main {
+        --u: calc(100vw / 671);
+
+        padding: 0 max(14px, calc(38 * var(--u))) max(60px, calc(115 * var(--u)));
+    }
+
+
+    /* BANNER */
+
+    div.banner-loja {
+        margin-top: max(14px, calc(23 * var(--u)));
+        min-height: max(190px, calc(359 * var(--u)));
+
+        border-radius: max(8px, calc(12 * var(--u)));
+    }
+
+    div.banner-loja-texto {
+        max-width: 62%;
+        padding: 0 0 0 max(20px, calc(45 * var(--u)));
+        gap: max(6px, calc(12 * var(--u)));
+    }
+
+    /* o parágrafo de descrição não aparece no protótipo */
+    div.banner-loja-texto p:not(.subtitulo) {
+        display: none;
+    }
+
+    p.subtitulo {
+        font-size: max(10px, calc(14 * var(--u)));
+        letter-spacing: max(1px, calc(2 * var(--u)));
+    }
+
+    h2 {
+        margin-bottom: 0;
+        font-size: max(40px, calc(68 * var(--u)));
+        line-height: 1.03;
+    }
+
+    div.banner-loja figure img {
+        width: 108%;
+        max-width: none;
+        height: 100%;
+
+        object-fit: cover;
+        object-position: right bottom;
+    }
+
+
+    /* GRADE */
+
+    .grade-produtos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        column-gap: max(10px, calc(19 * var(--u)));
+        row-gap: max(10px, calc(19 * var(--u)));
+
+        margin-top: max(12px, calc(27 * var(--u)));
+    }
+
+
+    /* CARD */
+
+    .produto {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+
+        gap: max(10px, calc(18 * var(--u)));
+        padding-bottom: max(10px, calc(14 * var(--u)));
+
+        border-radius: max(8px, calc(12 * var(--u)));
+    }
+
+    .produto-imagem-container,
+    div.placeholder {
+        height: calc(310 * var(--u));
+    }
+
+    .produto-imagem-container img,
+    .placeholder img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .produto-info {
+        padding: 0 max(10px, calc(24 * var(--u)));
+        gap: max(4px, calc(6 * var(--u)));
+    }
+
+    h3 {
+        font-size: max(11px, calc(19 * var(--u)));
+        line-height: 1.2;
+    }
+
+    .preco {
+        font-size: max(20px, calc(32 * var(--u)));
+    }
+
+    .parcelas {
+        margin-top: max(2px, calc(4 * var(--u)));
+        font-size: max(9px, calc(15 * var(--u)));
+        line-height: 1.3;
+    }
+
+
+    /* BOTÃO COMPRAR */
+
+    a.botao-compra {
+        width: calc(100% - max(20px, calc(48 * var(--u))));
+        height: max(38px, calc(67 * var(--u)));
+        box-sizing: border-box;
+
+        padding: 0;
+        gap: max(6px, calc(10 * var(--u)));
+
+        border-radius: max(6px, calc(8 * var(--u)));
+    }
+
+    a.botao-compra img {
+        width: max(12px, calc(17 * var(--u)));
+        height: auto;
+    }
+
+    .botao-compra p {
+        font-size: max(12px, calc(19 * var(--u)));
+    }
+
 }

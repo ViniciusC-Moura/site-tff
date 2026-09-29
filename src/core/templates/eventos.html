@@ -25,7 +25,7 @@
                         
                         <div class="local-data">
                             <p><strong>Local:</strong> {{ evento.local }}</p>
-                            <p><strong>Data:</strong> {{ evento.data_hora|date:"d/m/y — H:i" }}</p>
+                            <p><strong>Data:</strong> {{ evento.data_hora|date:"d/m/Y — H:i" }}</p>
                         </div>
 
                         <a href="{% url 'fotos_evento' evento.id %}"><img src="{% static 'imagens/icone_camera_eventos.png' %}" alt="Ícone de câmera">Fotos</a>

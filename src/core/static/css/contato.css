@@ -5,7 +5,7 @@
 .contato-main {
     width: 100%;
     background: #f5f5f5;
-    padding: 35px 40px 90px;
+    padding: 35px 40px 0;
     box-sizing: border-box;
 }
 
@@ -301,7 +301,7 @@
 @media (max-width: 900px) {
 
     .contato-main {
-        padding: 35px 30px 70px;
+        padding: 35px 30px 0;
     }
 
     .contato-container {
@@ -323,42 +323,50 @@
 
 
 /* =========================================
-   MOBILE
+   MOBILE (protótipo de 700px)
 ========================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
     .contato-main {
-        padding: 45px 40px 80px;
+        --u: calc(100vw / 700);
+        --sombra: max(5px, calc(9 * var(--u)));
+        --font-destaque: 'Montserrat', sans-serif; /* troque pela fonte condensada do protótipo, se quiser */
+
+        padding: max(28px, calc(45 * var(--u)))
+                 max(20px, calc(40 * var(--u)))
+                 max(48px, calc(80 * var(--u)));
         background: #fff;
     }
 
     .contato-titulo {
-        margin-bottom: 42px;
-
-        font-size: 34px;
+        margin-bottom: max(24px, calc(43 * var(--u)));
+        font-size: max(26px, calc(34 * var(--u)));
     }
-
-
-    /* FORMULÁRIO */
 
     .contato-container {
         display: flex;
         flex-direction: column;
 
         width: 100%;
-        gap: 32px;
+        max-width: none;
+        margin: 0;
+        gap: max(20px, calc(32 * var(--u)));
     }
 
+
+    /* FORMULÁRIO */
+
     .contato-form-box {
-        width: 100%;
+        width: calc(100% - var(--sombra));
         box-sizing: border-box;
 
-        padding: 45px 30px 25px;
+        padding: max(26px, calc(45 * var(--u)))
+                 max(18px, calc(30 * var(--u)))
+                 max(16px, calc(22 * var(--u)));
 
         border-radius: 9px;
-
-        box-shadow: 7px 7px 0 #132c22;
+        box-shadow: var(--sombra) var(--sombra) 0 #132c22;
     }
 
     .form-row {
@@ -368,35 +376,34 @@
     }
 
     .form-group {
-        margin-bottom: 32px;
+        margin-bottom: max(18px, calc(30 * var(--u)));
     }
 
     .form-group label {
-        margin-bottom: 8px;
+        margin-bottom: max(6px, calc(8 * var(--u)));
+        font-size: max(13px, calc(26 * var(--u)));
+        line-height: 1.2;
+    }
 
-        font-size: 20px;
+    .form-group input,
+    .form-group textarea {
+        font-size: max(16px, calc(17 * var(--u)));
     }
 
     .form-group input {
-        height: 68px;
-
-        padding: 15px;
-
-        font-size: 17px;
+        height: max(50px, calc(68 * var(--u)));
+        padding: 0 max(12px, calc(16 * var(--u)));
     }
 
     .form-group textarea {
-        height: 165px;
-
-        padding: 15px;
-
-        font-size: 17px;
+        height: max(110px, calc(165 * var(--u)));
+        padding: max(10px, calc(14 * var(--u))) max(12px, calc(16 * var(--u)));
     }
 
     .btn-enviar {
-        height: 73px;
-
-        font-size: 21px;
+        height: max(54px, calc(76 * var(--u)));
+        font-family: var(--font-destaque);
+        font-size: max(16px, calc(21 * var(--u)));
     }
 
 
@@ -406,67 +413,78 @@
         width: 100%;
 
         display: grid;
-        grid-template-columns: 1fr 1fr;
-
-        gap: 20px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: max(10px, calc(20 * var(--u)));
+        row-gap: max(14px, calc(22 * var(--u)));
     }
 
 
-    /* WHATSAPP FICA PRIMEIRO */
+    /* WHATSAPP (primeiro) */
 
     .whatsapp-box {
         order: -1;
-
         grid-column: 1 / -1;
 
-        padding: 28px 24px;
+        margin-bottom: calc(9 * var(--u));
+        padding: max(16px, calc(26 * var(--u))) max(14px, calc(24 * var(--u)));
     }
 
     .whatsapp-box h2 {
-        font-size: 18px;
+        margin-bottom: max(14px, calc(22 * var(--u)));
+        font-family: var(--font-destaque);
+        font-size: max(14px, calc(18 * var(--u)));
         line-height: 1.3;
-
-        margin-bottom: 22px;
     }
 
     .btn-whatsapp {
-        width: 280px;
+        width: max(200px, calc(284 * var(--u)));
         max-width: 100%;
+        height: max(52px, calc(72 * var(--u)));
 
-        height: 74px;
+        gap: max(14px, calc(32 * var(--u)));
+        padding: 0 max(14px, calc(24 * var(--u)));
 
-        font-size: 19px;
-
-        padding: 0 25px;
+        font-family: var(--font-destaque);
+        font-size: max(15px, calc(19 * var(--u)));
     }
 
     .whatsapp-arrow {
-        width: 32px;
-        height: 32px;
-
-        font-size: 27px;
+        width: max(26px, calc(38 * var(--u)));
+        height: max(26px, calc(38 * var(--u)));
+        font-size: max(20px, calc(30 * var(--u)));
     }
 
 
-    /* CARDS */
+    /* CARDS: TikTok, Instagram e depois Email */
+
+    .contato-info .contato-card:nth-child(1) {
+        order: 3;
+    }
 
     .contato-card {
-        min-height: 123px;
+        min-width: 0;
+        min-height: max(88px, calc(122 * var(--u)));
 
-        padding: 24px;
-
-        flex-direction: row;
+        padding: 0 max(10px, calc(16 * var(--u))) 0 max(14px, calc(24 * var(--u)));
     }
 
     .contato-icon {
-        width: 64px;
-        height: 64px;
+        width: max(46px, calc(64 * var(--u)));
+        height: max(46px, calc(64 * var(--u)));
+    }
 
-        font-size: 35px;
+    .contato-icon img {
+        width: 46%;
+        height: auto;
+    }
+
+    .contato-icon .email {
+        width: 60%;
     }
 
     .contato-card-text {
-        margin-left: 12px;
+        min-width: 0;
+        margin-left: max(8px, calc(10 * var(--u)));
     }
 
     .contato-card-text small {
@@ -474,52 +492,28 @@
     }
 
     .contato-card-text strong {
-        font-size: 18px;
-        word-break: break-word;
+        font-family: var(--font-destaque);
+        font-size: max(13px, calc(17 * var(--u)));
+        line-height: 1.2;
+        overflow-wrap: anywhere;
     }
 
 }
 
-
-/* =========================================
-   MOBILE PEQUENO
-========================================= */
-
-@media (max-width: 430px) {
-
-    .contato-main {
-        padding-left: 25px;
-        padding-right: 25px;
-    }
-
-    .contato-titulo {
-        font-size: 30px;
-    }
-
-    .contato-form-box {
-        padding-left: 22px;
-        padding-right: 22px;
-    }
+@media (max-width: 700px) {
 
     .contato-info {
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
+        grid-template-columns: 1fr;
     }
 
-    .contato-card {
-        padding: 15px;
-        min-height: 110px;
-    }
-
-    .contato-icon {
-        width: 50px;
-        height: 50px;
-
-        font-size: 28px;
+    /* volta o Email para a ordem normal (não precisa mais ficar embaixo sozinho) */
+    .contato-info .contato-card:nth-child(1) {
+        order: 0;
     }
 
     .contato-card-text strong {
-        font-size: 15px;
+        overflow-wrap: break-word; /* só quebra se realmente não couber */
+        word-break: normal;
     }
 
 }
