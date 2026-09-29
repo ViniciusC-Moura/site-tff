@@ -149,3 +149,125 @@ body{
 a {
   text-decoration: none;
 }
+
+/* =========================================
+   TABLET (2 colunas)
+========================================= */
+
+@media (max-width: 1050px) {
+
+    main {
+        padding: 0 5vw;
+    }
+
+    .noticias {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: 700px;
+        gap: 30px;
+    }
+
+    .card-image-wrapper {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 376 / 272;
+    }
+
+    .card-placeholder {
+        height: 100%;
+    }
+
+    .news-card {
+        min-width: 0;
+    }
+
+    .news-card-descricao {
+        max-width: 100%;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE (protótipo de 647px)
+========================================= */
+
+@media (max-width: 700px) {
+
+    main {
+        --u: calc(100vw / 647);
+
+        padding: 0 max(16px, calc(71 * var(--u)));
+    }
+
+    .titulo_pagina {
+        font-size: max(24px, calc(34 * var(--u)));
+    }
+
+
+    /* LISTA: 1 coluna */
+
+    .noticias {
+        grid-template-columns: minmax(0, 1fr);
+        max-width: none;
+
+        margin: max(20px, calc(30 * var(--u))) 0 max(50px, calc(80 * var(--u)));
+        row-gap: max(24px, calc(39 * var(--u)));
+    }
+
+
+    /* IMAGEM + FAIXA */
+
+    .card-image-wrapper {
+        width: 100%;
+        height: calc(322 * var(--u));
+        min-height: 170px;
+        aspect-ratio: auto;
+
+        border-radius: max(10px, calc(15 * var(--u)));
+    }
+
+    .card-overlay {
+        height: max(36px, calc(57 * var(--u)));
+        box-sizing: border-box;
+
+        padding: 0 max(10px, calc(19 * var(--u)));
+        background-color: rgba(110, 110, 110, 0.9);
+    }
+
+    .card-title {
+        max-width: none;
+        padding: 0 max(8px, calc(27 * var(--u)));
+        height: max(20px, calc(25 * var(--u)));
+
+        display: flex;
+        align-items: center;
+
+        border-radius: max(4px, calc(5 * var(--u)));
+        font-size: max(11px, calc(15 * var(--u)));
+        line-height: 1;
+    }
+
+    .card-date {
+        font-size: max(11px, calc(15 * var(--u)));
+    }
+
+
+    /* TEXTO */
+
+    .news-card-content {
+        margin-top: max(10px, calc(14 * var(--u)));
+    }
+
+    .news-card-titulo {
+        margin-bottom: max(4px, calc(6 * var(--u)));
+        font-size: max(17px, calc(26 * var(--u)));
+        line-height: 1.2;
+    }
+
+    .news-card-descricao {
+        max-width: 100%;
+        font-size: max(13px, calc(19 * var(--u)));
+        line-height: 1.2;
+    }
+
+}

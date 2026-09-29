@@ -133,3 +133,138 @@ div.evento-card .img_principal {
 
     box-sizing: border-box;
 }
+
+/* =========================================
+   TELAS MÉDIAS (fluido)
+========================================= */
+
+@media (max-width: 1600px) {
+
+    main {
+        padding: 0 5vw 60px;
+    }
+
+    .grade-eventos {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    div.evento-card {
+        width: 100%;
+        height: auto;
+        min-height: 620px;
+        min-width: 0;
+    }
+
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .grade-eventos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =========================================
+   MOBILE (protótipo de 562px)
+========================================= */
+
+@media (max-width: 600px) {
+
+    main {
+        --u: calc(100vw / 562);
+
+        margin-top: max(24px, calc(35 * var(--u)));
+        padding: 0 max(16px, calc(52 * var(--u))) max(50px, calc(75 * var(--u)));
+    }
+
+    h2 {
+        margin-bottom: max(20px, calc(34 * var(--u)));
+        font-size: max(22px, calc(30 * var(--u)));
+    }
+
+
+    /* GRADE: 1 coluna */
+
+    .grade-eventos {
+        grid-template-columns: 1fr;
+        gap: max(18px, calc(39 * var(--u)));
+    }
+
+
+    /* CARD */
+
+    div.evento-card {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        margin-bottom: 0;
+
+        padding: max(14px, calc(22 * var(--u)))
+                 max(14px, calc(24 * var(--u)))
+                 max(20px, calc(39 * var(--u)));
+
+        gap: max(12px, calc(20 * var(--u)));
+
+        border-width: max(2px, calc(3 * var(--u)));
+        border-radius: max(14px, calc(20 * var(--u)));
+    }
+
+    div.evento-card .img_principal,
+    div.placeholder {
+        height: calc(257 * var(--u));
+        min-height: 120px;
+    }
+
+    h3 {
+        font-size: max(18px, calc(24 * var(--u)));
+    }
+
+
+    /* TEXTOS */
+
+    .info {
+        width: 100%;
+        gap: max(16px, calc(28 * var(--u)));
+    }
+
+    .info > p {
+        font-size: max(14px, calc(18 * var(--u)));
+        line-height: 1.17;
+    }
+
+    div.local-data p {
+        font-size: max(15px, calc(20 * var(--u)));
+        line-height: 1.2;
+    }
+
+    div.local-data p:nth-child(1) {
+        margin-bottom: max(10px, calc(18 * var(--u)));
+    }
+
+
+    /* BOTÃO FOTOS */
+
+    .info a {
+        width: max(112px, calc(157 * var(--u)));
+        height: max(38px, calc(51 * var(--u)));
+
+        padding: 0 max(10px, calc(16 * var(--u)));
+        gap: max(8px, calc(12 * var(--u)));
+
+        border-radius: max(8px, calc(10 * var(--u)));
+        font-size: max(15px, calc(20 * var(--u)));
+    }
+
+    .info a img {
+        width: max(20px, calc(31 * var(--u)));
+        height: auto;
+    }
+
+}
