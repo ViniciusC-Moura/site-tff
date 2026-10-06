@@ -39,8 +39,6 @@ header{
     z-index: 1000;
 }
 
-/* A nav usa a mesma largura do footer (63%), então
-   no desktop de 1920px continua idêntica ao protótipo */
 header nav{
     display: flex;
     align-items: center;
@@ -129,7 +127,6 @@ header h1 img{
     background-color: #16cf6a;
 }
 
-/* Botão hambúrguer e overlay: escondidos no desktop */
 .menu-toggle {
     display: none;
 }
@@ -217,7 +214,6 @@ footer {
 
 /* ================= RESPONSIVO ================= */
 
-/* Telas médias: nav e footer ocupam mais largura */
 @media (max-width: 1400px) {
     header nav,
     .footer-container {
@@ -225,7 +221,6 @@ footer {
     }
 }
 
-/* Mobile/tablet: header com hambúrguer + menu lateral */
 @media (max-width: 1024px) {
     :root {
         --header-mobile: 56px;
@@ -250,7 +245,6 @@ footer {
         height: 44px;
     }
 
-    /* Botão hambúrguer (à esquerda) */
     .menu-toggle {
         display: flex;
         flex-direction: column;
@@ -265,7 +259,7 @@ footer {
         border: none;
         cursor: pointer;
         position: relative;
-        z-index: 2; /* fica acima do menu lateral para poder fechá-lo */
+        z-index: 2;
     }
 
     .menu-toggle span {
@@ -289,7 +283,6 @@ footer {
         transform: translateY(-8px) rotate(-45deg);
     }
 
-    /* Menu lateral (ocupa ~75% da tela, como no protótipo) */
     header nav > ul {
         position: fixed;
         top: 0;
@@ -320,7 +313,6 @@ footer {
         padding: 11px 0;
     }
 
-    /* Seta gira quando o submenu está aberto */
     header nav ul li a img {
         transition: transform 0.3s ease;
     }
@@ -329,7 +321,6 @@ footer {
         transform: rotate(180deg);
     }
 
-    /* Submenus abrem dentro do próprio menu, recuados */
     .submenu {
         position: static;
         min-width: 0;
@@ -347,7 +338,6 @@ footer {
         text-decoration: underline;
     }
 
-    /* Fundo escurecido atrás do menu */
     .menu-overlay {
         display: block;
         position: fixed;
@@ -365,7 +355,6 @@ footer {
     }
 }
 
-/* Mobile: footer empilhado como no protótipo */
 @media (max-width: 768px) {
     footer {
         height: auto;
@@ -400,7 +389,6 @@ footer {
         object-fit: contain;
     }
 
-    /* Ordem das colunas no mobile: Comunicação | Torcida | Esportes */
     .footer-bottom {
         display: grid;
         grid-template-columns: 37% 32% 1fr;

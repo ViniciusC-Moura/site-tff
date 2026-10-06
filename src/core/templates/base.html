@@ -54,7 +54,7 @@
         </nav>
     </header>
 
-    <!-- Fundo escurecido que aparece atrás do menu lateral no mobile -->
+    <!-- Fundo escurecido do menu lateral mobile -->
     <div class="menu-overlay"></div>
 
     {% block content %}
@@ -113,7 +113,6 @@
         const dropdowns = document.querySelectorAll(".dropdown-btn");
         const menuToggle = document.querySelector(".menu-toggle");
         const menuOverlay = document.querySelector(".menu-overlay");
-        // Mesmo breakpoint usado no style.css
         const isMobile = window.matchMedia("(max-width: 1024px)");
 
         function abrirFecharMenu(abrir) {
@@ -136,7 +135,6 @@
             }
         });
 
-        // Ao voltar para o desktop, fecha o menu lateral e os submenus
         isMobile.addEventListener("change", function (event) {
             if (!event.matches) {
                 abrirFecharMenu(false);
@@ -149,7 +147,6 @@
                 event.preventDefault();
                 const dropdown = this.parentElement;
 
-                // No desktop só um submenu fica aberto; no mobile podem ficar vários (como no protótipo)
                 if (!isMobile.matches) {
                     document.querySelectorAll(".dropdown").forEach(item => {
                         if (item !== dropdown) {
