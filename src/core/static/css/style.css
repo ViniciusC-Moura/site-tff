@@ -30,6 +30,8 @@ body{
     margin-top: 50px;
 }
 
+/* ================= HEADER ================= */
+
 header{
     background-color: var(--verde_header_footer);
     height: 82px;
@@ -37,12 +39,23 @@ header{
     z-index: 1000;
 }
 
+/* A nav usa a mesma largura do footer (63%), então
+   no desktop de 1920px continua idêntica ao protótipo */
+header nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 63%;
+    height: 100%;
+    margin: 0 auto;
+}
+
 header nav > ul {
     display: flex;
     align-items: center;
-    gap: 90px;
+    gap: clamp(24px, 4.7vw, 90px);
     list-style: none;
-    margin: 0 355px 0 auto;
+    margin: 0;
     padding: 0;
     font-size: 20px;
     font-weight: bold;
@@ -67,14 +80,14 @@ header a{
     color: white;
 }
 
-header h1 img{
-    margin-left: 353px;
-    width: 74px;
-    height: 80px;
+header h1 a{
+    display: block;
+    line-height: 0;
 }
 
-header nav{
-    display: flex;
+header h1 img{
+    width: 74px;
+    height: 80px;
 }
 
 .dropdown {
@@ -115,6 +128,17 @@ header nav{
 .submenu li a:hover {
     background-color: #16cf6a;
 }
+
+/* Botão hambúrguer e overlay: escondidos no desktop */
+.menu-toggle {
+    display: none;
+}
+
+.menu-overlay {
+    display: none;
+}
+
+/* ================= FOOTER ================= */
 
 footer {
     width: 100%;
@@ -189,4 +213,223 @@ footer {
     font-size: 18px;
     white-space: nowrap;
     font-family: 'Montserrat', sans-serif;
+}
+
+/* ================= RESPONSIVO ================= */
+
+/* Telas médias: nav e footer ocupam mais largura */
+@media (max-width: 1400px) {
+    header nav,
+    .footer-container {
+        width: 90%;
+    }
+}
+
+/* Mobile/tablet: header com hambúrguer + menu lateral */
+@media (max-width: 1024px) {
+    :root {
+        --header-mobile: 56px;
+    }
+
+    body.menu-aberto {
+        overflow: hidden;
+    }
+
+    header {
+        height: var(--header-mobile);
+    }
+
+    header nav {
+        width: 100%;
+        padding: 0 5%;
+        box-sizing: border-box;
+    }
+
+    header h1 img {
+        width: auto;
+        height: 44px;
+    }
+
+    /* Botão hambúrguer (à esquerda) */
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        width: 40px;
+        height: 40px;
+        margin-left: -8px;
+        padding: 0;
+        background: none;
+        border: none;
+        cursor: pointer;
+        position: relative;
+        z-index: 2; /* fica acima do menu lateral para poder fechá-lo */
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 22px;
+        height: 3px;
+        border-radius: 2px;
+        background-color: white;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    body.menu-aberto .menu-toggle span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    body.menu-aberto .menu-toggle span:nth-child(2) {
+        opacity: 0;
+    }
+
+    body.menu-aberto .menu-toggle span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Menu lateral (ocupa ~75% da tela, como no protótipo) */
+    header nav > ul {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 1;
+        width: 75%;
+        max-width: 360px;
+        box-sizing: border-box;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: calc(var(--header-mobile) + 24px) 7% 24px;
+        overflow-y: auto;
+        font-size: 16px;
+        background-color: var(--verde_header_footer);
+        transform: translateX(-100%);
+        visibility: hidden;
+        transition: transform 0.3s ease, visibility 0.3s;
+    }
+
+    body.menu-aberto header nav > ul {
+        transform: translateX(0);
+        visibility: visible;
+    }
+
+    header nav > ul > li > a {
+        padding: 11px 0;
+    }
+
+    /* Seta gira quando o submenu está aberto */
+    header nav ul li a img {
+        transition: transform 0.3s ease;
+    }
+
+    .dropdown.active .dropdown-btn img {
+        transform: rotate(180deg);
+    }
+
+    /* Submenus abrem dentro do próprio menu, recuados */
+    .submenu {
+        position: static;
+        min-width: 0;
+        padding: 0 0 0 25px;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .submenu li a {
+        padding: 11px 0;
+    }
+
+    .submenu li a:hover {
+        background-color: transparent;
+        text-decoration: underline;
+    }
+
+    /* Fundo escurecido atrás do menu */
+    .menu-overlay {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: 900;
+        background-color: rgba(0, 0, 0, 0.27);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s;
+    }
+
+    body.menu-aberto .menu-overlay {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* Mobile: footer empilhado como no protótipo */
+@media (max-width: 768px) {
+    footer {
+        height: auto;
+        margin-top: 3em;
+        padding: 24px 0 20px;
+    }
+
+    .footer-container {
+        width: 90%;
+        height: auto;
+    }
+
+    .footer-top {
+        height: auto;
+        padding-bottom: 12px;
+    }
+
+    .logo_tff_footer {
+        width: auto;
+        height: 44px;
+    }
+
+    .icones {
+        gap: 12px;
+        margin-top: 0;
+    }
+
+    .icones img {
+        display: block;
+        width: 28px;
+        height: 28px;
+        object-fit: contain;
+    }
+
+    /* Ordem das colunas no mobile: Comunicação | Torcida | Esportes */
+    .footer-bottom {
+        display: grid;
+        grid-template-columns: 37% 32% 1fr;
+        padding-top: 12px;
+    }
+
+    .footer-coluna {
+        width: auto;
+    }
+
+    .footer-coluna:nth-child(3) { order: 1; }
+    .footer-coluna:nth-child(1) { order: 2; }
+    .footer-coluna:nth-child(2) { order: 3; }
+
+    .footer-coluna h3 {
+        margin-bottom: 8px;
+        font-size: 14px;
+    }
+
+    .footer-coluna a {
+        margin-bottom: 7px;
+        font-size: 11px;
+    }
+
+    .copyright {
+        order: 4;
+        grid-column: 1 / -1;
+        margin: 14px 0 0;
+        font-size: 13px;
+        white-space: normal;
+    }
 }
