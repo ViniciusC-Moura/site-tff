@@ -41,30 +41,4 @@
         </div>
 
     </main>
-
-<script>
-    const dropdowns = document.querySelectorAll(".dropdown-btn");
-
-    dropdowns.forEach(button => {
-        button.addEventListener("click", function (event) {
-            event.preventDefault();
-            const dropdown = this.parentElement;
-            document.querySelectorAll(".dropdown").forEach(item => {
-                if (item !== dropdown) {
-                    item.classList.remove("active");
-                }
-            });
-            dropdown.classList.toggle("active");
-        });
-    });
-
-    document.addEventListener("click", function (event) {
-        if (!event.target.closest(".dropdown")) {
-            document.querySelectorAll(".dropdown").forEach(item => {
-                item.classList.remove("active");
-            });
-        }
-    });
-</script>
-
 {% endblock %}
