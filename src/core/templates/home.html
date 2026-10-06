@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         return Math.max(
             1,
-            Math.floor((containerWidth + gap) / (cardWidth + gap))
+            Math.floor((containerWidth + gap) / (cardWidth + gap) + 0.01 )
         );
     }
 

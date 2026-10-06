@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap');
+
 *{
     margin: 0%;
     padding: 0;
@@ -15,7 +17,7 @@
     --verde_card_escuro: #065f46;
     --fundo: #f5f5f5;
 }
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap');
+
 .container-seletivas{
     background-color: var(--verde_card_escuro);
     border-radius: 12px;
@@ -47,7 +49,7 @@
     margin-left: 27px;
     margin-bottom: 31px;
     font-size: 24px;
-    font-weight: semi-bold;
+    font-weight: 600;
 }
 .icones-seletiva img{
     width: 19px;
@@ -192,7 +194,7 @@
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     column-gap: 35px;
-    row-gap: 24px;
+    row-gap: 35px;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -224,10 +226,116 @@
     color: var(--verde_titulo);
     padding-left: 353px;
 }
+
+/* ---------- Notebook / tablet largo ---------- */
 @media (max-width: 1600px){
     .inicio-esporte{
         padding: 40px 24px;
         flex-wrap: wrap;
         justify-content: center;
     }
+    .figurinhas_titulo{
+        padding-left: 24px;
+        margin-top: 80px;
+    }
+    .figurinhas_section{
+        width: auto;
+        max-width: 1222px;
+        margin: 12px 24px 64px;
+    }
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 1024px){
+    .figurinhas_grid{
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        column-gap: 24px;
+    }
+}
+
+/* ---------- Mobile (protótipo) ---------- */
+@media (max-width: 768px){
+    .titulo_pagina{
+        text-align: center;
+        font-size: 28px;
+        color: var(--verde_titulo);
+        font-family: 'Montserrat', sans-serif;
+        padding: 24px 16px 0;
+    }
+
+    /* Seletivas + Técnico lado a lado, carrossel embaixo */
+    .inicio-esporte{
+        display: grid;
+        grid-template-columns: minmax(0, 1.9fr) minmax(0, 1fr);
+        grid-template-areas:
+            "seletivas tecnico"
+            "carrossel carrossel";
+        gap: 16px;
+        padding: 24px 16px 0;
+    }
+
+    .container-seletivas{
+        grid-area: seletivas;
+        width: auto;
+        height: auto;
+        padding: 20px 16px;
+        box-shadow: 0 4px 12px #0003;
+    }
+    .titulo-seletiva{
+        margin-bottom: 16px;
+        align-items: center;
+    }
+    .titulo-seletiva h2{
+        font-size: 18px;
+        letter-spacing: 0.1em;
+    }
+    .titulo-seletiva img{ width: 20px; }
+    .icones-seletiva h3{
+        font-size: 11px;
+        margin-top: 2px;
+        color: var(--verde_titulo_claro);
+    }
+    .icones-seletiva img{ width: 16px; }
+    .conteudo-seletiva p{
+        margin-left: 24px;
+        margin-bottom: 14px;
+        font-size: 16px;
+        overflow-wrap: anywhere;
+    }
+    .conteudo-seletiva:last-child p{ margin-bottom: 0; }
+
+    .container-tecnico{
+        grid-area: tecnico;
+        width: auto;
+        height: auto;
+        padding: 16px 12px;
+        justify-content: flex-start;
+        gap: 4px;
+    }
+    .container-tecnico h2{ font-size: 11px; letter-spacing: 0.05em; }
+    .nome_tecnico{ font-size: 18px; margin-bottom: 8px; }
+    .email_tecnico{ font-size: 12px; }
+
+    .carrosel{
+        grid-area: carrossel;
+        width: 100%;
+        aspect-ratio: 538 / 294;
+        border-radius: 20px;
+    }
+
+    .figurinhas_titulo{
+        margin-top: 40px;
+        padding: 0 16px;
+        text-align: center;
+        font-size: 24px;
+    }
+    .figurinhas_section{
+        margin: 16px 16px 48px;
+    }
+    .figurinhas_grid{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 16px;
+        row-gap: 16px;
+    }
+    .figurinha_card{ aspect-ratio: 1 / 1.06; }
 }

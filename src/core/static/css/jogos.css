@@ -652,7 +652,18 @@ div.fase-jogo p {
     /* times e placar */
 
     div.times-placar {
-        margin-top: max(6px, calc(12 * var(--u)));
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    margin-top: max(6px, calc(12 * var(--u)));
+}
+
+    /* time da esquerda cola na borda esquerda, o da direita na direita */
+    div.times-placar > div.time:first-child {
+        justify-self: start;
+    }
+    div.times-placar > div.time:last-child {
+        justify-self: end;
     }
 
     div.time {
@@ -666,10 +677,10 @@ div.fase-jogo p {
     }
 
     div.time p {
-        width: auto;
-        font-size: max(11px, calc(17 * var(--u)));
-        letter-spacing: 0.05em;
-    }
+    width: auto;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
 
     div.time div p {
         font-size: max(11px, calc(17 * var(--u)));

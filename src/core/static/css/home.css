@@ -451,3 +451,261 @@ div.todos-jogos a div{
 .dot.active {
   background-color: #5cfb40;
 }
+
+/* ---------- Notebook / tablet: remove larguras e paddings fixos ---------- */
+@media (max-width: 1400px){
+    section.banner-inicio{ padding: 0 5vw; }
+    section.banner-inicio div{ width: auto; flex: 1; }
+    section.banner-inicio figure{ flex: 0 1 40%; align-self: center; }
+    section.banner-inicio figure img{ display: block; width: 100%; height: auto; }
+
+    section.camisa-inicio{ height: auto; padding: 60px 5vw; }
+    .camisa-card{
+        width: 100%;
+        max-width: 1209px;
+        height: auto;
+        min-height: 433px;
+        padding: 30px 5vw 30px 3vw;
+        gap: 5vw;
+        align-items: center;
+    }
+    .camisa-card figure{ flex: 0 1 45%; }
+    .camisa-card figure img{ display: block; width: 100%; height: auto; }
+    .camisa-info{ padding: 0; flex: 1; min-width: 0; }
+    .camisa-info p{ font-size: clamp(18px, 2.2vw, 30px); }
+
+    section.noticias{ height: auto; padding: 0 5vw 50px; }
+    .news-card{ flex: 0 0 calc(33.333% - 28px); min-width: 0; }
+    .card-image-wrapper{ width: 100%; height: auto; aspect-ratio: 426 / 291; }
+    .card-placeholder{ height: 100%; }
+
+    section.ultimos-jogos{ height: auto; padding: 100px 5vw 0; }
+    section.proximos-jogos{ padding: 0 5vw 40px; }
+    div.card-jogo{ width: calc(50% - 15px); height: auto; min-height: 176px; }
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 1000px){
+    .news-card{ flex: 0 0 calc(50% - 21px); }   /* 2 cards por vez */
+    div.card-jogo{ width: 100%; }
+}
+
+/* ---------- Mobile (protótipo de 641px) ---------- */
+@media (max-width: 700px){
+    main{ --u: calc(100vw / 641); }
+
+    /* ----- Banner ----- */
+    section.banner-inicio{
+        height: calc(261 * var(--u));
+        padding: 0 calc(37 * var(--u));
+        align-items: center;
+        gap: calc(10 * var(--u));
+        /* background-image: url("../imagens/fundo-banner.jpg"); background-size: cover; background-position: center; */
+    }
+    section.banner-inicio div{
+        width: auto;
+        height: auto;
+        flex: 1;
+        min-width: 0;
+        gap: calc(14 * var(--u));
+    }
+    section.banner-inicio div p{
+        font-size: max(16px, calc(23 * var(--u)));
+        font-weight: 600;
+    }
+    section.banner-inicio div p br{ display: none; }   /* o texto fica em uma linha só */
+    section.banner-inicio div a{
+        width: fit-content;
+        font-size: max(15px, calc(21 * var(--u)));
+        padding: calc(9 * var(--u)) calc(16 * var(--u));
+        border-radius: max(5px, calc(7 * var(--u)));
+    }
+    section.banner-inicio figure{ flex: 0 0 calc(160 * var(--u)); }
+
+    /* ----- Camisa ----- */
+    section.camisa-inicio{
+        height: auto;
+        padding: calc(41 * var(--u)) calc(37 * var(--u));
+    }
+    .camisa-card{
+        width: 100%;
+        height: calc(322 * var(--u));
+        min-height: 0;
+        padding: 0 calc(26 * var(--u)) 0 calc(18 * var(--u));
+        gap: calc(14 * var(--u));
+        border-width: max(3px, calc(5 * var(--u)));
+        border-radius: max(6px, calc(10 * var(--u)));
+    }
+    .camisa-card figure{ flex: 0 0 calc(215 * var(--u)); }
+    .camisa-info{ gap: calc(8 * var(--u)); }
+    .camisa-info h2{ font-size: max(18px, calc(26 * var(--u))); }
+    .camisa-info p{ font-size: max(13px, calc(20 * var(--u))); line-height: 1.15; }
+    .camisa-preco{
+        gap: calc(14 * var(--u));
+        padding: calc(8 * var(--u)) calc(10 * var(--u)) calc(8 * var(--u)) calc(15 * var(--u));
+        border-radius: calc(20 * var(--u));
+        margin-top: calc(6 * var(--u));
+    }
+    .camisa-info .camisa-preco p{ font-size: max(16px, calc(25 * var(--u))); }
+    .camisa-preco a{
+        padding: calc(9 * var(--u)) calc(22 * var(--u));
+        font-size: max(13px, calc(19 * var(--u)));
+        border-radius: max(5px, calc(8 * var(--u)));
+    }
+
+    /* ----- Notícias: carrossel vira "deslizar com o dedo" ----- */
+    section.noticias{
+        height: auto;
+        overflow: hidden;
+        padding: calc(36 * var(--u)) calc(87 * var(--u)) calc(45 * var(--u));
+    }
+    #garra-esquerda,
+    #garra-direita{
+        top: 50%;
+        transform: translateY(-50%);
+        width: calc(75 * var(--u));
+        height: auto;
+    }
+    #garra-esquerda{ left: 0; }
+    #garra-direita{ right: 0; }
+
+    div.titulo-ancora{
+        align-items: center;
+        padding: 0;
+        margin-bottom: calc(12 * var(--u));
+    }
+    .titulo-ancora h2{ font-size: max(20px, calc(30 * var(--u))); }
+    .titulo-ancora a{ font-size: max(11px, calc(14 * var(--u))); }
+    .titulo-ancora a img{ width: calc(16 * var(--u)); height: auto; }
+
+    .carousel-nav,
+    .carousel-pagination{ display: none !important; }
+
+    .carousel-track-container{
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+    }
+    .carousel-track-container::-webkit-scrollbar{ display: none; }
+    .carousel-track{
+        gap: calc(13 * var(--u));
+        transform: none !important;
+    }
+    .news-card{
+        position: relative;
+        flex: 0 0 66.5%;
+        scroll-snap-align: start;
+    }
+    .card-image-wrapper{
+        width: 100%;
+        height: auto;
+        aspect-ratio: 307 / 218;
+        border-radius: max(8px, calc(12 * var(--u)));
+    }
+
+    /* faixa cinza: etiqueta (tag) à esquerda, data à direita */
+    .card-overlay{
+        box-sizing: border-box;
+        height: calc(52 * var(--u));
+        padding: 0 calc(24 * var(--u));
+        background: rgba(110, 110, 110, 0.95);
+        justify-content: flex-end;
+    }
+    .card-title{ display: none; }
+    .card-date{ font-size: max(10px, calc(13 * var(--u))); }
+    .card-category{
+        position: absolute;
+        left: calc(14 * var(--u));
+        bottom: calc(14 * var(--u));
+        margin: 0;
+        padding: calc(3 * var(--u)) calc(10 * var(--u));
+        background: var(--roxo_card);
+        border-radius: max(3px, calc(5 * var(--u)));
+        font-size: max(10px, calc(13 * var(--u)));
+        font-weight: 600;
+    }
+
+    /* ----- Últimos / Próximos jogos ----- */
+    section.ultimos-jogos{
+        height: auto;
+        padding: calc(55 * var(--u)) calc(37 * var(--u)) 0;
+    }
+    section.proximos-jogos{
+        padding: calc(55 * var(--u)) calc(37 * var(--u)) calc(60 * var(--u));
+    }
+    section.ultimos-jogos h2,
+    section.proximos-jogos h2{
+        text-align: center;
+        font-size: max(22px, calc(27 * var(--u)));
+    }
+    div.ultimos-jogos-container,
+    div.proximos-jogos-container{
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: calc(28 * var(--u));
+        margin-top: calc(22 * var(--u));
+    }
+
+    div.card-jogo{
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        margin-bottom: 0;
+        padding: max(8px, calc(10 * var(--u))) max(12px, calc(34 * var(--u)));
+        border-radius: max(10px, calc(14 * var(--u)));
+    }
+    div.mod-data-comp{
+        align-items: flex-start;
+        gap: calc(8 * var(--u));
+        margin-bottom: 0;
+    }
+    div.mod-data-comp div{ gap: calc(5 * var(--u)); }
+    div.mod-data-comp div img{ width: max(12px, calc(17 * var(--u))); height: auto; }
+    div.mod-data-comp p,
+    p.local-hora{
+        min-width: 0;
+        font-size: max(10px, calc(15 * var(--u)));
+        line-height: 1.4;
+        letter-spacing: 0.05em;
+    }
+    div.mod-data-comp > p{ text-align: right; }
+
+    /* placar sempre no centro exato do card */
+    div.times-placar{
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        align-items: center;
+        margin-top: calc(8 * var(--u));
+    }
+    div.times-placar > div.time:first-child{ justify-self: start; }
+    div.times-placar > div.time:last-child{ justify-self: end; }
+    div.time{ gap: calc(6 * var(--u)); }
+    div.time img,
+    div.time div{
+        width: max(36px, calc(50 * var(--u)));
+        height: max(36px, calc(50 * var(--u)));
+    }
+    div.time p{
+        width: auto;
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        font-size: max(10px, calc(15 * var(--u)));
+        letter-spacing: 0.05em;
+    }
+    div.time div p{ font-size: max(10px, calc(15 * var(--u))); }
+    .placar{ font-size: max(28px, calc(46 * var(--u))); }
+
+    div.fase-jogo{
+        align-self: center;
+        width: fit-content;
+        margin: calc(2 * var(--u)) 0 0;
+        padding: calc(3 * var(--u)) calc(14 * var(--u));
+    }
+    div.fase-jogo p{
+        white-space: nowrap;
+        font-size: max(10px, calc(15 * var(--u)));
+        letter-spacing: 0.06em;
+    }
+
+    div.todos-jogos a p{ font-size: max(13px, calc(18 * var(--u))); }
+}

@@ -14,92 +14,96 @@
     margin-bottom: 37px;
 }
 .card_equipe{
+    position: relative;               /* necessário para o link ocupar o card todo */
     display: flex;
     background: white;
     border: 1px solid var(--verde_titulo);
     justify-content: center;
     align-items: center;
     gap: 12px;
-    width: 279px;
+    width: 100%;
+    max-width: 279px;
     height: 206px;
     border-radius: 8px;
 }
 .nome_equipe{
     font-family: 'Anton', sans-serif;
     color: var(--verde_card_escuro);
-    font-size: 32px;
+    font-size: clamp(20px, 2.4vw, 32px);
+    text-decoration: none;
+    text-align: center;
+}
+/* O card inteiro vira área de clique/toque */
+.nome_equipe::after{
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+}
+.nome_equipe:focus-visible{ outline: none; }
+.nome_equipe:focus-visible::after{
+    outline: 3px solid var(--verde_titulo);
+    outline-offset: 2px;
 }
 .icone_equipe{
+    flex-shrink: 0;
     width: 30px;
     height: 30px;
 }
 .linha_cards_equipes{
     display: grid;
-    grid-template-columns: repeat(4, 279px);
+    grid-template-columns: repeat(4, minmax(0, 279px));  /* encolhe se faltar espaço */
     justify-content: center;
     gap: 31px;
     max-width: 1210px;
     margin: 0 auto 50px;
 }
 
-/* =========================================
-   MOBILE (protótipo de 700px)
-========================================= */
+/* ---------- Notebook pequeno / tablet largo ---------- */
+@media (max-width: 1280px){
+    main{ padding: 0 24px; }
+}
 
-@media (max-width: 700px) {
+/* ---------- Tablet: 3 colunas ---------- */
+@media (max-width: 1100px){
+    .linha_cards_equipes{
+        grid-template-columns: repeat(3, minmax(0, 279px));
+        gap: 24px;
+    }
+    .titulo_pagina{ font-size: 44px; }
+}
 
-    main {
+/* ---------- Mobile (protótipo de 700px): 2 colunas ---------- */
+@media (max-width: 700px){
+    main{
         --u: calc(100vw / 700);
-
         padding: 0 max(16px, calc(40 * var(--u)));
     }
-
-    .titulo_pagina {
+    .titulo_pagina{
         margin-top: max(28px, calc(43 * var(--u)));
         margin-bottom: max(22px, calc(39 * var(--u)));
         font-size: max(24px, calc(34 * var(--u)));
     }
-
-
-    /* GRADE: 2 colunas */
-
-    .linha_cards_equipes {
+    .linha_cards_equipes{
         grid-template-columns: repeat(2, minmax(0, 1fr));
         max-width: none;
-
         column-gap: max(12px, calc(44 * var(--u)));
         row-gap: max(14px, calc(45 * var(--u)));
-
         margin: 0 0 max(50px, calc(100 * var(--u)));
     }
-
-
-    /* CARD */
-
-    .card_equipe {
-        width: 100%;
-        min-width: 0;
-
-        height: calc(193 * var(--u));
-        min-height: 90px;
-        aspect-ratio: auto;
-
+    .card_equipe{
+        max-width: none;
+        height: max(90px, calc(193 * var(--u)));
         gap: max(6px, calc(12 * var(--u)));
         padding: 0 max(6px, calc(10 * var(--u)));
-
         border-radius: max(6px, calc(8 * var(--u)));
     }
-
-    .icone_equipe {
-        flex-shrink: 0;
+    .icone_equipe{
         width: max(18px, calc(30 * var(--u)));
         height: max(18px, calc(30 * var(--u)));
     }
-
-    .nome_equipe {
+    .nome_equipe{
         font-size: max(17px, calc(32 * var(--u)));
         line-height: 1.1;
-        text-align: center;
     }
-
 }

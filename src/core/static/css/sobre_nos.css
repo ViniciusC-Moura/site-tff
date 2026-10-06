@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
 body{
     font-family: 'Montserrat', sans-serif;
 }
@@ -235,4 +237,164 @@ body{
     margin: 0;
     white-space: pre-line;
     color: #000;
+}
+
+/* ---------- Notebook / tablet: remove as margens fixas de 355px ---------- */
+@media (max-width: 1400px){
+    .polaroid{ padding: 0 5vw; }
+    .info{ width: auto; flex: 1; max-width: 570px; margin-left: 5vw; }
+    .info p{ margin-bottom: 3em; }
+    .pola img{ max-width: 100%; height: auto; }
+
+    .mascote{ height: auto; min-height: 405px; }
+    .conteudo_mascote{ height: auto; min-height: 405px; padding: 40px 5vw; gap: 5vw; }
+    .mascote_geral{ flex: 1; min-width: 0; }
+    .mascote h2, .mascote p{ margin-left: 0; }
+    .paragrafo{ width: auto; }
+    .img_pantera{ margin: 0; flex: 0 1 32%; }
+    .pantera{ width: 100%; height: auto; }
+    .garra{ width: 30vw; }
+
+    .torcida{ width: auto; max-width: none; margin: 100px 5vw 0; gap: 4vw; }
+    .ft_torcida{ flex: 0 1 45%; }
+    .ft_torcida img{ display: block; width: 100%; height: auto; }
+    .conteudo_torcida{ width: auto; flex: 1; margin-left: 0; }
+
+    .musicas{ max-width: none; margin: 100px 5vw; }
+}
+
+/* ---------- Mobile (protótipo de 577px) ---------- */
+@media (max-width: 700px){
+    main{
+        --u: calc(100vw / 577);
+        --pad: max(16px, calc(34 * var(--u)));
+    }
+
+    .titulo_pagina{
+        margin-top: max(24px, calc(38 * var(--u)));
+        font-size: max(24px, calc(30 * var(--u)));
+        text-align: center;
+    }
+
+    /* ----- Texto em cima; foto + "DESDE 2023" embaixo ----- */
+    .polaroid{
+        display: grid;
+        grid-template-columns: minmax(0, 291fr) minmax(0, 220fr);
+        grid-template-areas:
+            "texto texto"
+            "foto  desde";
+        row-gap: max(20px, calc(42 * var(--u)));
+        align-items: center;
+        margin: max(20px, calc(34 * var(--u))) 0 0;
+        padding: 0 var(--pad);
+    }
+    .info{ display: contents; }          /* h2 e p viram itens do grid */
+    .info p{
+        grid-area: texto;
+        align-self: start;
+        margin: 0;
+        font-size: max(15px, calc(20 * var(--u)));
+        font-weight: 500;
+        line-height: 1.2;
+    }
+    .pola{ grid-area: foto; margin: 0; }
+    .pola img{ display: block; width: 100%; height: auto; }
+    .info h2{
+        grid-area: desde;
+        margin: 0;
+        font-family: 'Anton', sans-serif;
+        font-weight: 400;
+        font-size: max(36px, calc(62 * var(--u)));
+        line-height: 1.05;
+        text-align: center;
+        color: var(--verde_titulo_claro);
+    }
+    .info h2::before{
+        content: "DESDE";
+        display: block;
+        color: var(--verde_escuro);
+    }
+
+    /* ----- Mascote: pantera à esquerda, texto à direita ----- */
+    .mascote{
+        display: flex;
+        align-items: center;
+        height: auto;
+        min-height: calc(262 * var(--u));
+        margin-top: max(30px, calc(44 * var(--u)));
+    }
+    .conteudo_mascote{
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        box-sizing: border-box;
+        justify-content: center;
+        gap: max(14px, calc(25 * var(--u)));
+        padding: max(20px, calc(40 * var(--u))) max(40px, calc(70 * var(--u)));
+    }
+    .img_pantera{ order: -1; flex: 0 0 40%; margin: 0; }
+    .pantera{ display: block; width: 100%; height: auto; }
+    .mascote_geral{ flex: 1; min-width: 0; }
+    .mascote h2{
+        margin: 0;
+        font-size: max(15px, calc(21 * var(--u)));
+    }
+    .paragrafo{ width: auto; font-weight: 500; }
+    .mascote p{
+        margin: max(4px, calc(8 * var(--u))) 0 0;
+        font-size: max(13px, calc(18 * var(--u)));
+        line-height: 1.1;
+        /* o protótipo corta o texto em 6 linhas; remova estas 4 linhas para mostrar tudo */
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 6;
+        overflow: hidden;
+    }
+
+    /* garras nas bordas, centralizadas na vertical (ajuste o width se precisar) */
+    .garra{ top: 50%; transform: translateY(-50%); width: max(44px, calc(110 * var(--u))); }
+    .garra-esquerda{ left: 0; }
+    .garra-direita{ right: 0; }
+
+    /* não existe no protótipo mobile */
+    .torcida{ display: none; }
+
+    /* ----- Músicas: 1 coluna ----- */
+    .musicas{
+        max-width: none;
+        margin: max(40px, calc(70 * var(--u))) 0 max(40px, calc(70 * var(--u)));
+        padding: 0 var(--pad);
+    }
+    .musicas-header{
+        justify-content: center;
+        margin-bottom: max(24px, calc(45 * var(--u)));
+    }
+    .musicas-header h2{ font-size: max(24px, calc(30 * var(--u))); }
+    .musicas-grid{ grid-template-columns: 1fr; gap: 0; }
+
+    .accordion-item{ margin-bottom: max(12px, calc(22 * var(--u))); }
+    .accordion-btn{
+        height: max(50px, calc(73 * var(--u)));
+        padding: 0 max(40px, calc(62 * var(--u)));   /* reserva espaço só para a seta */
+        font-size: max(13px, calc(21 * var(--u)));   /* era 25 */
+        white-space: nowrap;                          /* nunca quebra a linha */
+        border-radius: max(8px, calc(10 * var(--u)));
+    }
+    .accordion-btn.active{ border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+    .accordion-btn .seta-box{
+        left: max(5px, calc(8 * var(--u)));
+        width: max(34px, calc(60 * var(--u)));
+        height: max(34px, calc(60 * var(--u)));
+    }
+    .accordion-btn .seta{ font-size: max(18px, calc(30 * var(--u))); }
+
+    .accordion-content{ padding: 0 max(12px, calc(18 * var(--u))); }
+    .accordion-btn.active + .accordion-content{
+        padding: max(10px, calc(16 * var(--u))) max(12px, calc(18 * var(--u)));
+    }
+    .accordion-content p{
+        font-size: max(13px, calc(20 * var(--u)));
+        line-height: 1.2;
+        font-weight: 500;
+    }
 }

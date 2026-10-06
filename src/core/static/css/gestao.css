@@ -35,6 +35,7 @@
     border-radius: 12px 20px 20px 20px;
     background: #fff;
     box-shadow: 8px 10px 12px rgb(0 0 0 / 25%);
+    border: 0px;
     width: 262px;
     height: 330px;
 }
@@ -42,12 +43,13 @@
 .gestao-card__imagem {
     position: absolute;
     z-index: 2;
-    top: 16px;
-    left: 17px;
-    width: 261px;
-    height: 184px;
+    top: 15px;          /* mesmo valor do ::after */
+    left: 16px;         /* mesmo valor do ::after */
+    width: 262px;       /* mesma largura do ::after */
+    height: 185px;
     overflow: hidden;
-    border-radius: 12px 20px 0 0;
+    border-radius: 12px 20px 0 0;   /* mesmos cantos do ::after */
+    background: #eee;               /* fundo caso a foto não carregue */
 }
 
 .gestao-card__imagem img {
@@ -55,6 +57,7 @@
     height: 100%;
     display: block;
     object-fit: cover;
+    object-position: center 20%;    /* mantém rostos e topo da foto visíveis */
 }
 
 .gestao-card__conteudo {
@@ -91,4 +94,79 @@
     gap: 90px;
     max-width: 981px;
     margin: 100px auto;
+}
+
+/* ---------- Tablet / notebook pequeno: 3 colunas fluidas ---------- */
+@media (max-width: 1100px){
+    main{ padding: 0 24px; }
+
+    .titulo_pagina{ font-size: 44px; }
+
+    .linha_cards{
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 32px;
+        max-width: 900px;
+        margin: 60px auto;
+    }
+
+    /* card escala com a coluna */
+    .gestao-card{
+        width: 100%;
+        height: auto;
+        aspect-ratio: 278 / 325;
+    }
+    .gestao-card::after{
+        inset: 4% 0 0 6.1%;
+        width: auto;
+        height: auto;
+    }
+    .gestao-card__imagem{
+        top: 4%;
+        left: 6.1%;
+        right: 0;            /* em vez de width, para acompanhar o ::after exatamente */
+        width: auto;
+        height: 56.3%;
+    }
+    .gestao-card__conteudo{
+        top: 69%;
+        left: 12.6%;
+        right: 4%;
+    }
+    .gestao-card__conteudo h2{ font-size: 18px; }
+    .gestao-card__conteudo p{ font-size: 15px; margin-top: 6px; }
+    .gestao-card__conteudo h2,
+    .gestao-card__conteudo p{ overflow-wrap: anywhere; }
+}
+
+/* ---------- Mobile (protótipo de 700px): 2 colunas ---------- */
+@media (max-width: 700px){
+    main{
+        --u: calc(100vw / 700);
+        padding: 0 max(16px, calc(40 * var(--u)));
+    }
+
+    .titulo_pagina{
+        margin-top: max(28px, calc(43 * var(--u)));
+        font-size: max(24px, calc(34 * var(--u)));
+    }
+
+    .linha_cards{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: none;
+        column-gap: max(14px, calc(48 * var(--u)));
+        row-gap: max(20px, calc(48 * var(--u)));
+        margin: max(24px, calc(45 * var(--u))) 0 max(50px, calc(100 * var(--u)));
+    }
+
+    .gestao-card::after{
+        box-shadow: 4px 6px 8px rgb(0 0 0 / 25%);
+    }
+
+    .gestao-card__conteudo h2{
+        font-size: max(16px, calc(28 * var(--u)));
+    }
+    .gestao-card__conteudo p{
+        font-size: max(13px, calc(22 * var(--u)));
+        margin-top: max(4px, calc(8 * var(--u)));
+    }
 }

@@ -1,190 +1,244 @@
 ﻿{% extends "base.html" %}
 {% load static %}
 {% block style %}
-    <link rel="stylesheet" href="{% static 'css/sobre_nos.css' %}">
+<link rel="stylesheet" href="{% static 'css/sobre_nos.css' %}">
 {% endblock %}
 
 {% block content %}
-    <main>
-        <h1 class="titulo_pagina">SOBRE NÓS</h1>
-        <section class="polaroid">
-            <figure class="pola">
-                <img src="{% static 'imagens/polaroid.png' %}" alt="">
-            </figure>
-            <div class="info">
-                <h2>2023</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae quae, consequatur ipsum odit
-                    officia qui rerum laborum praesentium maxime voluptatem error alias, at odio reprehenderit sapiente
-                    voluptas autem enim sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati
-                    suscipit facere voluptates impedit iure animi, accusantium ut id quam eius repellendus aliquam
-                    voluptatem totam rem ea adipisci nisi sunt velit.</p>
+<main>
+    <h1 class="titulo_pagina">SOBRE NÓS</h1>
+    <section class="polaroid">
+        <figure class="pola">
+            <img src="{% static 'imagens/polaroid.png' %}" alt="">
+        </figure>
+        <div class="info">
+            <h2>2023</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae quae, consequatur ipsum odit
+                officia qui rerum laborum praesentium maxime voluptatem error alias, at odio reprehenderit sapiente
+                voluptas autem enim sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati
+                suscipit facere voluptates impedit iure animi, accusantium ut id quam eius repellendus aliquam
+                voluptatem totam rem ea adipisci nisi sunt velit.</p>
+        </div>
+    </section>
+    <section class="mascote">
+        <img src="{% static 'imagens/garra_esquerda.png' %}" alt="" class="garra garra-esquerda">
+        <img src="{% static 'imagens/garra_direita.png' %}" alt="" class="garra garra-direita">
+
+        <div class="conteudo_mascote">
+
+            <div class="mascote_geral">
+                <h2>O MASCOTE</h2>
+
+                <div class="paragrafo">
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and
+                        typesetting industry. Lorem Ipsum has been the industry's
+                        standard dummy text ever since the 1500s, when an unknown
+                        printer took a galley of type and scrambled it to make a
+                        type specimen book. Lorem Ipsum is simply dummy text of
+                        the printing and typesetting industry
+                    </p>
+                </div>
             </div>
-        </section>
-        <section class="mascote">
-            <img src="{% static 'imagens/garra_esquerda.png' %}" alt="" class="garra garra-esquerda">
-            <img src="{% static 'imagens/garra_direita.png' %}" alt="" class="garra garra-direita">
 
-            <div class="conteudo_mascote">
+            <figure class="img_pantera">
+                <img class="pantera" src="{% static 'imagens/pantera.png' %}" alt="">
+            </figure>
 
-                <div class="mascote_geral">
-                    <h2>O MASCOTE</h2>
+        </div>
 
-                    <div class="paragrafo">
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry. Lorem Ipsum has been the industry's
-                            standard dummy text ever since the 1500s, when an unknown
-                            printer took a galley of type and scrambled it to make a
-                            type specimen book. Lorem Ipsum is simply dummy text of
-                            the printing and typesetting industry
+
+    </section>
+
+    <section class="torcida">
+        <figure class="ft_torcida">
+            <img src="{% static 'imagens/torcida.png' %}" alt="">
+        </figure>
+        <div class="conteudo_torcida">
+            <h2>TÍTULO</h2>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
+            </p>
+        </div>
+    </section>
+
+    <section class="musicas">
+        <div class="musicas-header">
+            <h2>MÚSICAS</h2>
+        </div>
+
+        <div class="musicas-grid">
+            <div class="musicas-coluna">
+                <div class="accordion-item">
+                    <button class="accordion-btn">
+                        <span class="seta-box"><span class="seta">❯</span></span>
+                        CNAT estou sempre contigo
+                    </button>
+                    <div class="accordion-content">
+                        <p>CNAT!
+                            Estou sempre contigo
+                            Somos uma nação
+                            Não importa onde esteja
+                            Sempre estarei contigo
+
+                            Com meu manto sagrado
+                            E a faixa na mão
+                            O RN é nosso
+                            Vai começar a festa
+
+                            Dá-lhe, dá-lhe, dá-lhe, ô
+                            Dá-lhe, dá-lhe, dá-lhe, ô
+                            Dá-lhe, dá-lhe, dá-lhe, ô
+                            Central do meu coração
+
+                            Dá-lhe, dá-lhe, dá-lhe, ô
+                            Dá-lhe, dá-lhe, dá-lhe, ô
+                            Dá-lhe, dá-lhe, dá-lhe, ô
+                            Central do meu coração
                         </p>
                     </div>
                 </div>
 
-                <figure class="img_pantera">
-                    <img class="pantera" src="{% static 'imagens/pantera.png' %}" alt="">
-                </figure>
-
-            </div>
-
-
-        </section>
-
-        <section class="torcida">
-            <figure class="ft_torcida">
-                <img src="{% static 'imagens/torcida.png' %}" alt="">
-            </figure>
-            <div class="conteudo_torcida">
-                <h2>TÍTULO</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
-                </p>
-            </div>
-        </section>
-
-        <section class="musicas">
-            <div class="musicas-header">
-                <h2>MÚSICAS</h2>
-            </div>
-
-            <div class="musicas-grid">
-                <div class="musicas-coluna">
-                    <div class="accordion-item">
-                        <button class="accordion-btn">
-                            <span class="seta-box"><span class="seta">❯</span></span>
-                            CNAT estou sempre contigo
-                        </button>
-                        <div class="accordion-content">
-                            <p>Letra da música aqui...</p>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <button class="accordion-btn">
-                            <span class="seta-box"><span class="seta">❯</span></span>
-                            Quem for da Fúria
-                        </button>
-                        <div class="accordion-content">
-                            <p>Letra da música aqui...</p>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <button class="accordion-btn">
-                            <span class="seta-box"><span class="seta">❯</span></span>
-                            Dizem por aí
-                        </button>
-                        <div class="accordion-content">
-                            <p>Letra da música aqui...</p>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <button class="accordion-btn active">
-                            <span class="seta-box"><span class="seta">❯</span></span>
-                            Abram Passagem
-                        </button>
-                        <div class="accordion-content" style="max-height: 500px;">
-                            <p>EM QUALQUER LUGAR A FÚRIA QUE INVADE
-                                O RESTO SE ESCONDE
-                                SE EU CANTAR ABRAM PASSAGEM
-
-                                OOOOOO ABRAM PASSAGEM
-                                FÚRIA FEDERAL
-                                O FERVOR DESSA CIDADE</p>
-                        </div>
+                <div class="accordion-item">
+                    <button class="accordion-btn">
+                        <span class="seta-box"><span class="seta">❯</span></span>
+                        Quem for da Fúria
+                    </button>
+                    <div class="accordion-content">
+                        <p><bold>SAI DO CHÃO!</bold>
+                            Quem for da Fúria pode se juntar, quem não for vamos quebrar!
+                            Quem for da Fúria pode se juntar, quem não for vamos quebrar!
+                        </p>
                     </div>
                 </div>
 
-                <div class="musicas-coluna">
-                    <div class="accordion-item">
-                        <button class="accordion-btn">
-                            <span class="seta-box"><span class="seta">❯</span></span>
-                            Ah, eu sou CNAT
-                        </button>
-                        <div class="accordion-content">
-                            <p>Letra da música aqui...</p>
-                        </div>
+                <div class="accordion-item">
+                    <button class="accordion-btn">
+                        <span class="seta-box"><span class="seta">❯</span></span>
+                        Dizem por aí
+                    </button>
+                    <div class="accordion-content">
+                        <p>(Puxador) TFF é cruel vai invadir!
+
+                            O Central balança como dizem por aí!
+
+                            Dizem por ai que a fúria é um galerao
+                            Quando a gente entra na quadra, todo mundo sai do chão
+                            Eu uso verde e branco, tu tem que respeitar
+                            A fúria quando chega faz geral se levantar
+
+                            Arere, eu sou TFF até morrer eee
+                            Arere, eu sou TFF até morrer eee
+                            Arere, eu sou TFF até morrer eee
+                        </p>
                     </div>
+                </div>
 
-                    <div class="accordion-item">
-                        <button class="accordion-btn">
-                            <span class="seta-box"><span class="seta">❯</span></span>
-                            Liga pra arnóbio
-                        </button>
-                        <div class="accordion-content">
-                            <p>Letra da música aqui...</p>
-                        </div>
-                    </div>
+                <div class="accordion-item">
+                    <button class="accordion-btn active">
+                        <span class="seta-box"><span class="seta">❯</span></span>
+                        Abram Passagem
+                    </button>
+                    <div class="accordion-content" style="max-height: 500px;">
+                        <p>EM QUALQUER LUGAR A FÚRIA QUE INVADE
+                            O RESTO SE ESCONDE
+                            SE EU CANTAR ABRAM PASSAGEM
 
-                    <div class="accordion-item">
-                        <button class="accordion-btn active">
-                            <span class="seta-box"><span class="seta">❯</span></span>
-                            Se tu torce pro CNAT
-                        </button>
-                        <div class="accordion-content" style="max-height: 500px;">
-                            <p>Se tu torce pro CNAT
-                                Um conselho eu vou te dar
-                                Se voce ficar parado va torcer em outro lugar
-                                Porque na TFF,
-                                Uma coisa eu falo serio
-                                Quem estiver quieto, vai levar um fica esperto 2x
-
-                                Se tu nao acreditou,
-                                E continuou parado,
-                                A maior da capital,
-                                Vai puxar o ta ligado,
-                                Quem ficar parado vai levar um ta ligado 2x
-
-                                Agora com certeza,
-                                A chapa ja esquentou,
-                                Vou mandar o sai da frente,
-                                Pra maior do corredor
-                                Sai! Sai da frente, sai que a fúria é muita gente 2x</p>
-                        </div>
+                            OOOOOO ABRAM PASSAGEM
+                            FÚRIA FEDERAL
+                            O FERVOR DESSA CIDADE</p>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
-    
+
+            <div class="musicas-coluna">
+                <div class="accordion-item">
+                    <button class="accordion-btn">
+                        <span class="seta-box"><span class="seta">❯</span></span>
+                        Ah, eu sou CNAT
+                    </button>
+                    <div class="accordion-content">
+                        <p>Se é pra Lutar? (Puxador)
+                            LUTAR!
+
+                            Se é pra vencer? (Puxador)
+                            VENCER!
+
+                            Eu sou IF/CNAT e ninguém vai me segurar!
+
+                            Ah! Eu sou CNAT
+                            Ah! Eu sou CNAT
+                            </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-btn">
+                        <span class="seta-box"><span class="seta">❯</span></span>
+                        Liga pra arnóbio
+                    </button>
+                    <div class="accordion-content">
+                        <p>Liga pro Arnóbio, chama o Flavão 
+                            Avisa que a fúria arrastou a multidão
+                            Porque a TFF não arrega que eu sei
+                            Domina a arquibancada, melhor da cidade é rei (2x)
+
+                            A Furia é Rei, é Rei, é Rei! (4x)
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-btn active">
+                        <span class="seta-box"><span class="seta">❯</span></span>
+                        Se tu torce pro CNAT
+                    </button>
+                    <div class="accordion-content" style="max-height: 500px;">
+                        <p>Se tu torce pro CNAT
+                            Um conselho eu vou te dar
+                            Se voce ficar parado va torcer em outro lugar
+                            Porque na TFF,
+                            Uma coisa eu falo serio
+                            Quem estiver quieto, vai levar um fica esperto 2x
+
+                            Se tu nao acreditou,
+                            E continuou parado,
+                            A maior da capital,
+                            Vai puxar o ta ligado,
+                            Quem ficar parado vai levar um ta ligado 2x
+
+                            Agora com certeza,
+                            A chapa ja esquentou,
+                            Vou mandar o sai da frente,
+                            Pra maior do corredor
+                            Sai! Sai da frente, sai que a fúria é muita gente 2x</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
 <script>
     var acc = document.querySelectorAll(".accordion-btn");
 
     acc.forEach(function (btn) {
         btn.addEventListener("click", function () {
             this.classList.toggle("active");
-
             var panel = this.nextElementSibling;
-
-            if (panel.style.maxHeight) {
-                panel.style.maxHeight = null;
-            } else {
-                panel.style.maxHeight = panel.scrollHeight + "px";
-            }
+            panel.style.maxHeight = panel.style.maxHeight ? null : panel.scrollHeight + "px";
         });
     });
+
+    function ajustarAbertos() {
+        document.querySelectorAll(".accordion-btn.active").forEach(function (btn) {
+            var panel = btn.nextElementSibling;
+            panel.style.maxHeight = panel.scrollHeight + "px";
+        });
+    }
+    window.addEventListener("load", ajustarAbertos);
+    window.addEventListener("resize", ajustarAbertos);
 </script>
 {% endblock %}
