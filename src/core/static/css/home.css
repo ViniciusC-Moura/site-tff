@@ -129,6 +129,7 @@ section.camisa-inicio {
     gap: 30px;
     align-items: center;
     padding: 18px 18px 18px 31px;
+    flex-wrap: nowrap;
 }
 
 .camisa-preco p{
@@ -136,6 +137,8 @@ section.camisa-inicio {
     font-weight: normal;
     font-size: 30px;
     color: white;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .camisa-preco a{
@@ -146,10 +149,6 @@ section.camisa-inicio {
     padding: 10px 50px 10px 50px;
     font-size: 22px;
 }   
-
-
-
-
 
 section.noticias{
     position: relative;
@@ -709,3 +708,4 @@ div.todos-jogos a div{
 
     div.todos-jogos a p{ font-size: max(13px, calc(18 * var(--u))); }
 }
+
