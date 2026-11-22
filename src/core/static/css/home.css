@@ -144,6 +144,7 @@ section.camisa-inicio {
     background-image: radial-gradient(circle at top left, var(--verde_card_escuro), var(--verde_escuro));
     display: flex;
     gap: 91px;
+    box-sizing: border-box;
 }
 
 .camisa-info{

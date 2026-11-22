@@ -53,8 +53,14 @@
                 <p class="local-hora">{{ jogo.data_hora|date:"H\H" }} - {{ jogo.local|upper }}</p>
                 <div class="times-placar">
                     <div class="time">
-                        <img src="{% static 'imagens/cnat_escudo.png' %}" alt="CNAT">
-                        <p>CNAT</p>
+                        <img src="{% static 'imagens/cnat_escudo.png' %}" alt="CNAT/IFRN">
+                        <p>
+                            {% if jogo.fase_competicao == 'nordeste' or jogo.fase_competicao == 'nacional' %}
+                                IFRN
+                            {% else %}
+                                CNAT
+                            {% endif %}
+                        </p>
                     </div>
 
                     {% if jogo.status == 'finalizado' %}
@@ -69,7 +75,7 @@
                     </div>
                 </div>
                 <div class="fase-jogo">
-                    <p>{{ jogo.fase_jogo|upper }}</p>
+                    <p>{{ jogo.get_fase_jogo_display|upper }}</p>
                 </div>
             </div>
             {% empty %}

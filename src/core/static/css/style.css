@@ -88,6 +88,10 @@ header h1 img{
     height: 80px;
 }
 
+.inicio-mobile {
+    display: none;
+}
+
 .dropdown {
     position: relative;
 }
@@ -224,6 +228,10 @@ footer {
 @media (max-width: 1024px) {
     :root {
         --header-mobile: 56px;
+    }
+
+    .inicio-mobile {
+        display: block;
     }
 
     body.menu-aberto {

@@ -116,7 +116,13 @@
                     <div class="times-placar">
                         <div class="time">
                             <img src="{% static 'imagens/cnat_escudo.png' %}" alt="CNAT">
-                            <p>CNAT</p>
+                            <p>
+                                {% if jogo.fase_competicao == 'nordeste' or jogo.fase_competicao == 'nacional' %}
+                                    IFRN
+                                {% else %}
+                                    CNAT
+                                {% endif %}
+                            </p>
                         </div>
                         <p class="placar">{{ jogo.placar_cnat }} - {{ jogo.placar_adversario }}</p>
                         <div class="time">
@@ -125,7 +131,7 @@
                         </div>
                     </div>
                     <div class="fase-jogo">
-                        <p>{{ jogo.fase_jogo|upper }}</p>
+                        <p>{{ jogo.get_fase_jogo_display|upper }}</p>
                     </div>
                 </div>
                 {% endfor %}
@@ -146,7 +152,13 @@
                         <div class="times-placar">
                             <div class="time">
                                 <img src="{% static 'imagens/cnat_escudo.png' %}" alt="CNAT">
-                                <p>CNAT</p>
+                                <p>
+                                    {% if jogo.fase_competicao == 'nordeste' or jogo.fase_competicao == 'nacional' %}
+                                        IFRN
+                                    {% else %}
+                                        CNAT
+                                    {% endif %}
+                                </p>
                             </div>
                             <p class="placar">X</p>
                             <div class="time">
@@ -155,7 +167,7 @@
                             </div>
                         </div>
                         <div class="fase-jogo">
-                            <p>{{ jogo.fase_jogo|upper }}</p>
+                            <p>{{ jogo.get_fase_jogo_display|upper }}</p>
                         </div>
                     </div>
                 {% endfor %}
